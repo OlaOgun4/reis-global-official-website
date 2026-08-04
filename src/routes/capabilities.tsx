@@ -284,7 +284,7 @@ function CapabilitiesPage() {
           <p className="text-sm font-bold uppercase tracking-[0.22em] opacity-70">REIS engineering</p>
           <h2 className="mt-5 text-5xl font-bold tracking-[-0.05em] sm:text-6xl">Engineering confidence through research, architecture and delivery.</h2>
           <p className="mt-6 max-w-2xl text-lg leading-8 opacity-75">Discuss the capability combination required for your transformation agenda.</p>
-          <a href="mailto:hello@reis-global.com" className="reis-primary-button mt-9 inline-flex items-center gap-2 rounded-lg px-7 py-4 font-semibold">Start a conversation <ArrowRight size={18} /></a>
+          <a href="mailto:ola.reis.global@gmail.com" className="reis-primary-button mt-9 inline-flex items-center gap-2 rounded-lg px-7 py-4 font-semibold">Start a conversation <ArrowRight size={18} /></a>
         </div>
       </section>
 
@@ -292,7 +292,7 @@ function CapabilitiesPage() {
         <div className="mx-auto grid max-w-[1440px] gap-10 px-6 py-14 md:grid-cols-2 lg:grid-cols-4 lg:px-10">
           <div className="lg:col-span-2"><div className="flex items-center gap-3"><ReisMark /><span className="text-xl font-bold tracking-[0.05em]">REIS GLOBAL</span></div><p className="mt-5 max-w-md leading-7 opacity-60">Research, engineering, innovation and solutions for governments, enterprises and communities.</p></div>
           <div><h3 className="font-semibold">Explore</h3><div className="mt-4 flex flex-col gap-3 text-sm opacity-60"><a href="/about">About</a><a href="/capabilities">Capabilities</a><a href="/#solutions">Solutions</a><a href="/#research">Research</a></div></div>
-          <div><h3 className="font-semibold">Contact</h3><div className="mt-4 flex flex-col gap-3 text-sm opacity-60"><a href="mailto:hello@reis-global.com">hello@reis-global.com</a><span>United Kingdom</span><span>Serving clients globally</span></div></div>
+          <div><h3 className="font-semibold">Contact</h3><div className="mt-4 flex flex-col gap-3 text-sm opacity-60"><a href="mailto:ola.reis.global@gmail.com">ola.reis.global@gmail.com</a><span>United Kingdom</span><span>Serving clients globally</span></div></div>
         </div>
       </footer>
     </main>

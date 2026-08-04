@@ -257,7 +257,7 @@ function PublicationsPage() {
           <p className="mt-6 max-w-2xl text-lg leading-8 opacity-70">
             Discuss how REIS standards, frameworks and reference architectures can support your transformation programme.
           </p>
-          <a href="mailto:hello@reis-global.com" className="reis-primary-button mt-9 inline-flex items-center gap-2 rounded-lg px-7 py-4 font-semibold">
+          <a href="mailto:ola.reis.global@gmail.com" className="reis-primary-button mt-9 inline-flex items-center gap-2 rounded-lg px-7 py-4 font-semibold">
             Start a conversation <ArrowRight size={18} />
           </a>
         </div>
@@ -270,7 +270,7 @@ function PublicationsPage() {
             <p className="mt-5 max-w-md leading-7 opacity-60">Research, engineering, innovation and solutions for governments, enterprises and communities.</p>
           </div>
           <div><h3 className="font-semibold">Explore</h3><div className="mt-4 flex flex-col gap-3 text-sm opacity-60"><a href="/capabilities">Capabilities</a><a href="/solutions">Solutions</a><a href="/industries">Industries</a><a href="/research">Research</a></div></div>
-          <div><h3 className="font-semibold">Contact</h3><div className="mt-4 flex flex-col gap-3 text-sm opacity-60"><a href="mailto:hello@reis-global.com">hello@reis-global.com</a><span>United Kingdom</span><span>Serving clients globally</span></div></div>
+          <div><h3 className="font-semibold">Contact</h3><div className="mt-4 flex flex-col gap-3 text-sm opacity-60"><a href="mailto:ola.reis.global@gmail.com">ola.reis.global@gmail.com</a><span>United Kingdom</span><span>Serving clients globally</span></div></div>
         </div>
         <div className="mx-auto flex max-w-[1440px] flex-col gap-2 border-t px-6 py-6 text-xs opacity-45 sm:flex-row sm:justify-between lg:px-10"><span>© 2026 REIS Global Ltd. All rights reserved.</span><span>Research · Engineering · Innovation · Solutions</span></div>
       </footer>
