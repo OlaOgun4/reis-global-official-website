@@ -15,6 +15,11 @@ div {
   transition-timing-function: ease;
 }
 
+/* Keep anchored content fully visible below the fixed navigation header. */
+[id] {
+  scroll-margin-top: 6.5rem;
+}
+
 .reis-theme-toggle {
   position: fixed;
   right: 1.5rem;
