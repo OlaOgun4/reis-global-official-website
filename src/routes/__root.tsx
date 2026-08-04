@@ -14,6 +14,15 @@ import appCss from "../styles.css?url";
 import themeCss from "../theme.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 
+const themeInitScript = `
+(() => {
+  try {
+    const saved = localStorage.getItem('reis-theme');
+    const dark = saved ? saved === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+    document.documentElement.classList.toggle('dark', dark);
+  } catch (_) {}
+})();`;
+
 function NotFoundComponent() {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
@@ -79,12 +88,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { name: "theme-color", content: "#071834" },
+      { name: "color-scheme", content: "light dark" },
       { title: "REIS Global" },
       {
         name: "description",
         content: "Research, engineering, innovation and digital solutions.",
       },
       { name: "author", content: "REIS Global" },
+      { name: "robots", content: "index, follow, max-image-preview:large" },
+      { property: "og:site_name", content: "REIS Global" },
       { property: "og:title", content: "REIS Global" },
       {
         property: "og:description",
@@ -94,15 +107,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
-      {
-        rel: "stylesheet",
-        href: appCss,
-      },
-      {
-        rel: "stylesheet",
-        href: themeCss,
-      },
+      { rel: "stylesheet", href: appCss },
+      { rel: "stylesheet", href: themeCss },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "manifest", href: "/site.webmanifest" },
+      { rel: "canonical", href: "https://reis-global.com/" },
     ],
   }),
   shellComponent: RootShell,
@@ -115,9 +124,11 @@ function RootShell({ children }: { children: ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
         <HeadContent />
       </head>
       <body>
+        <a className="reis-skip-link" href="#top">Skip to main content</a>
         {children}
         <ThemeController />
         <Scripts />
@@ -167,7 +178,6 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
     </QueryClientProvider>
   );

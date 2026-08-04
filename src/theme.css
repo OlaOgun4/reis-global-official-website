@@ -15,10 +15,33 @@ div {
   transition-timing-function: ease;
 }
 
-/* Keep anchored content fully visible below the fixed navigation header. */
-[id] {
-  scroll-margin-top: 6.5rem;
+[id] { scroll-margin-top: 6.5rem; }
+
+.reis-skip-link {
+  position: fixed;
+  left: 1rem;
+  top: 1rem;
+  z-index: 120;
+  transform: translateY(-180%);
+  border-radius: .65rem;
+  background: #ffffff;
+  color: #071834;
+  padding: .75rem 1rem;
+  font-weight: 700;
+  box-shadow: 0 12px 34px rgba(0,0,0,.24);
 }
+.reis-skip-link:focus { transform: translateY(0); }
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid rgba(44,174,255,.72);
+  outline-offset: 3px;
+}
+
+::selection { background: rgba(13,140,255,.28); }
 
 .reis-theme-toggle {
   position: fixed;
@@ -57,7 +80,6 @@ div {
   box-shadow: 0 14px 40px rgba(0, 0, 0, 0.34);
 }
 
-/* Solutions and other intentionally dark panels become light in light mode. */
 :root:not(.dark) .reis-dark-section {
   background:
     radial-gradient(circle at 80% 10%, rgba(0, 112, 255, 0.12), transparent 28%),
@@ -66,9 +88,7 @@ div {
 }
 
 :root:not(.dark) .reis-dark-section h2,
-:root:not(.dark) .reis-dark-section h3 {
-  color: #0c1d3a !important;
-}
+:root:not(.dark) .reis-dark-section h3 { color: #0c1d3a !important; }
 
 :root:not(.dark) .reis-dark-section > div > div:first-child > p:last-child {
   color: #4b6282 !important;
@@ -103,14 +123,10 @@ div {
   border-color: rgba(43, 170, 255, 0.28) !important;
 }
 
-:root:not(.dark) .reis-solution-glow {
-  background: rgba(0, 119, 255, 0.09) !important;
-}
+:root:not(.dark) .reis-solution-glow { background: rgba(0, 119, 255, 0.09) !important; }
 
 :root:not(.dark) .reis-dark-section .reis-eyebrow,
-:root:not(.dark) .reis-dark-section .reis-card-link {
-  color: #087cff !important;
-}
+:root:not(.dark) .reis-dark-section .reis-card-link { color: #087cff !important; }
 
 .dark .reis-dark-section {
   background:
@@ -120,9 +136,7 @@ div {
 }
 
 .dark .reis-dark-section h2,
-.dark .reis-dark-section h3 {
-  color: #ffffff !important;
-}
+.dark .reis-dark-section h3 { color: #ffffff !important; }
 
 .dark .reis-dark-section > div > div:first-child > p:last-child {
   color: rgba(255, 255, 255, 0.64) !important;
@@ -173,7 +187,12 @@ div {
   .reis-theme-toggle { right: 2rem; bottom: 2rem; }
 }
 
+@media (max-width: 640px) {
+  .reis-theme-toggle { right: 1rem; bottom: 1rem; }
+}
+
 @media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto !important; }
   body,
   main,
   section,
