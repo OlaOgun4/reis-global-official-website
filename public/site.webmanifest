@@ -1,0 +1,16 @@
+{
+  "name": "REIS Global",
+  "short_name": "REIS",
+  "description": "Research, Engineering, Innovation and Solutions.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#071834",
+  "theme_color": "#071834",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "any",
+      "type": "image/x-icon"
+    }
+  ]
+}
