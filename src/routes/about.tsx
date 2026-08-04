@@ -10,7 +10,6 @@ import {
   Lightbulb,
   Menu,
   Network,
-  Scale,
   ShieldCheck,
   Sparkles,
   Target,
@@ -50,7 +49,7 @@ const journey = [
   "Innovation",
   "Digital Platforms",
   "Knowledge Leadership",
-];
+] as const;
 
 const values = [
   [BookOpen, "Research", "Evidence before assumption."],
@@ -62,38 +61,41 @@ const values = [
 ] as const;
 
 const knowledge = [
-  {
-    title: "REIS AI Engineering & Delivery Standard",
-    code: "RAIEDS-001",
-    summary:
-      "A governance and engineering standard for architecture, security, delivery and operation of AI-assisted systems.",
-    figure: "AI Governance Lifecycle",
-    tags: ["AI", "Governance", "Engineering"],
-  },
-  {
-    title: "GovVisit AI Build Specification",
-    code: "GV-BLD-V1-001",
-    summary:
-      "An implementation blueprint covering workflows, architecture, OCR, RBAC, auditability and secure delivery.",
-    figure: "Platform Architecture",
-    tags: ["Government", "Platform", "Security"],
-  },
-  {
-    title: "Digital Agriculture Reference Architecture",
-    code: "DAPRA",
-    summary:
-      "A vendor-neutral reference architecture for integrated digital agriculture ecosystems and governance.",
-    figure: "Agriculture Capability Model",
-    tags: ["Agriculture", "Architecture", "Data"],
-  },
-  {
-    title: "National Justice Transformation Framework",
-    code: "NIJCPT",
-    summary:
-      "A structured transformation model connecting justice processes, institutional reform and corrections outcomes.",
-    figure: "Government Decision Pathway",
-    tags: ["Justice", "Transformation", "Public Sector"],
-  },
+  [
+    "RAIEDS-001",
+    "REIS AI Engineering & Delivery Standard",
+    "AI Governance Lifecycle",
+    "A governance and engineering standard for architecture, security, delivery and operation of AI-assisted systems.",
+    ["AI", "Governance", "Engineering"],
+  ],
+  [
+    "GV-BLD-V1-001",
+    "GovVisit AI Build Specification",
+    "Platform Architecture",
+    "An implementation blueprint covering workflows, architecture, OCR, RBAC, auditability and secure delivery.",
+    ["Government", "Platform", "Security"],
+  ],
+  [
+    "DAPRA",
+    "Digital Agriculture Reference Architecture",
+    "Agriculture Capability Model",
+    "A vendor-neutral reference architecture for integrated digital agriculture ecosystems and governance.",
+    ["Agriculture", "Architecture", "Data"],
+  ],
+  [
+    "NIJCPT",
+    "National Justice Transformation Framework",
+    "Government Decision Pathway",
+    "A structured transformation model connecting justice processes, institutional reform and corrections outcomes.",
+    ["Justice", "Transformation", "Public Sector"],
+  ],
+] as const;
+
+const outlook = [
+  [Globe2, "United Kingdom", "Corporate and engineering base"],
+  [Landmark, "Nigeria", "Priority transformation market"],
+  [Compass, "Africa", "Regional growth and impact"],
+  [Sparkles, "Global", "Standards-led delivery outlook"],
 ] as const;
 
 const principles = [
@@ -103,51 +105,14 @@ const principles = [
   "Quality before release",
   "Knowledge before repetition",
   "Partnership before transaction",
-];
+] as const;
 
 function AboutPage() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
     <main className="reis-site min-h-screen overflow-x-hidden">
-      <header className="reis-header fixed inset-x-0 top-0 z-50 border-b backdrop-blur-xl">
-        <div className="mx-auto flex h-20 max-w-[1440px] items-center justify-between px-6 lg:px-10">
-          <a href="/" className="flex items-center gap-3" aria-label="REIS Global home">
-            <ReisMark />
-            <div>
-              <div className="text-xl font-bold tracking-[0.04em]">REIS GLOBAL</div>
-              <div className="text-[9px] uppercase tracking-[0.18em] opacity-65">
-                Research · Engineering · Innovation · Solutions
-              </div>
-            </div>
-          </a>
-          <nav className="hidden items-center gap-7 text-sm lg:flex">
-            <a className="reis-nav-link text-white" href="/about">About</a>
-            <a className="reis-nav-link" href="/#capabilities">Capabilities</a>
-            <a className="reis-nav-link" href="/#solutions">Solutions</a>
-            <a className="reis-nav-link" href="/#industries">Industries</a>
-            <a className="reis-nav-link" href="/#research">Research</a>
-          </nav>
-          <a href="/#contact" className="reis-primary-button hidden items-center gap-2 rounded-lg px-5 py-3 text-sm font-semibold lg:inline-flex">
-            Start a conversation <ArrowRight size={16} />
-          </a>
-          <button type="button" className="reis-icon-button lg:hidden" onClick={() => setMobileOpen((value) => !value)} aria-label="Toggle navigation">
-            {mobileOpen ? <X /> : <Menu />}
-          </button>
-        </div>
-        {mobileOpen && (
-          <div className="reis-mobile-menu border-t px-6 py-5 lg:hidden">
-            <nav className="flex flex-col gap-4">
-              <a href="/about">About</a>
-              <a href="/#capabilities">Capabilities</a>
-              <a href="/#solutions">Solutions</a>
-              <a href="/#industries">Industries</a>
-              <a href="/#research">Research</a>
-              <a href="/#contact">Contact</a>
-            </nav>
-          </div>
-        )}
-      </header>
+      <SiteHeader mobileOpen={mobileOpen} setMobileOpen={setMobileOpen} />
 
       <section className="reis-hero relative isolate overflow-hidden pt-20">
         <div className="reis-grid absolute inset-0" />
@@ -172,16 +137,13 @@ function AboutPage() {
 
       <section className="reis-section py-24">
         <div className="mx-auto grid max-w-[1440px] gap-12 px-6 lg:grid-cols-[0.8fr_1.2fr] lg:px-10">
-          <div>
-            <p className="reis-eyebrow text-sm font-bold uppercase tracking-[0.22em]">Who we are</p>
-            <h2 className="mt-5 text-4xl font-bold tracking-[-0.04em] sm:text-5xl">A research-led engineering company.</h2>
-          </div>
+          <SectionLead eyebrow="Who we are" title="A research-led engineering company." />
           <div className="reis-panel rounded-3xl border p-8 sm:p-10">
             <p className="text-lg leading-8 opacity-75">
               REIS Global designs secure, intelligent and scalable digital platforms across enterprise architecture, artificial intelligence, software engineering, cloud, data, governance and national-scale transformation.
             </p>
             <p className="mt-6 text-lg leading-8 opacity-75">
-              We do not treat technology as an isolated deliverable. We engineer complete ecosystems that align people, processes, information, governance and technology around measurable outcomes.
+              We engineer complete ecosystems that align people, processes, information, governance and technology around measurable outcomes—not isolated technology deliverables.
             </p>
           </div>
         </div>
@@ -204,18 +166,12 @@ function AboutPage() {
 
       <section className="reis-section py-24">
         <div className="mx-auto grid max-w-[1440px] gap-6 px-6 lg:grid-cols-2 lg:px-10">
-          <article className="reis-panel rounded-3xl border p-8 sm:p-10">
-            <p className="reis-eyebrow text-sm font-bold uppercase tracking-[0.22em]">Our mission</p>
-            <h2 className="mt-6 text-3xl font-bold leading-tight tracking-[-0.04em] sm:text-4xl">
-              To research, engineer and deliver intelligent digital solutions that strengthen institutions, empower organisations and improve lives.
-            </h2>
-          </article>
-          <article className="reis-panel rounded-3xl border p-8 sm:p-10">
-            <p className="reis-eyebrow text-sm font-bold uppercase tracking-[0.22em]">Our vision</p>
-            <h2 className="mt-6 text-3xl font-bold leading-tight tracking-[-0.04em] sm:text-4xl">
-              To become Africa&apos;s leading research, engineering and innovation company delivering globally recognised platforms, trusted knowledge and transformational solutions.
-            </h2>
-          </article>
+          <StatementCard eyebrow="Our mission">
+            To research, engineer and deliver intelligent digital solutions that strengthen institutions, empower organisations and improve lives.
+          </StatementCard>
+          <StatementCard eyebrow="Our vision">
+            To become Africa&apos;s leading research, engineering and innovation company delivering globally recognised platforms, trusted knowledge and transformational solutions.
+          </StatementCard>
         </div>
       </section>
 
@@ -236,16 +192,10 @@ function AboutPage() {
 
       <section className="reis-section py-24">
         <div className="mx-auto grid max-w-[1440px] gap-12 px-6 lg:grid-cols-[0.8fr_1.2fr] lg:px-10">
-          <div>
-            <p className="reis-eyebrow text-sm font-bold uppercase tracking-[0.22em]">Why REIS</p>
-            <h2 className="mt-5 text-4xl font-bold tracking-[-0.04em] sm:text-5xl">Architecture, security and outcomes—not isolated technology.</h2>
-          </div>
+          <SectionLead eyebrow="Why REIS" title="Architecture, security and outcomes—not isolated technology." />
           <div className="grid gap-4 sm:grid-cols-2">
             {["Research led", "Architecture driven", "Engineering focused", "AI ready", "Secure by design", "Outcome oriented"].map((item) => (
-              <div key={item} className="reis-panel flex items-center gap-4 rounded-2xl border p-5">
-                <div className="reis-check grid h-9 w-9 shrink-0 place-items-center rounded-full"><Check size={17} /></div>
-                <span className="font-semibold">{item}</span>
-              </div>
+              <CheckCard key={item}>{item}</CheckCard>
             ))}
           </div>
         </div>
@@ -255,32 +205,26 @@ function AboutPage() {
         <div className="mx-auto max-w-[1440px] px-6 lg:px-10">
           <SectionHeader eyebrow="REIS knowledge" title="Engineering knowledge that creates real solutions" text="REIS develops standards, implementation specifications, frameworks and reference architectures that directly underpin the solutions we deliver." />
           <div className="mt-12 grid gap-5 lg:grid-cols-2">
-            {knowledge.map((item) => (
-              <article key={item.code} className="reis-panel overflow-hidden rounded-3xl border">
+            {knowledge.map(([code, title, figure, summary, tags]) => (
+              <article key={code} className="reis-panel overflow-hidden rounded-3xl border">
                 <div className="about-figure-preview relative min-h-52 overflow-hidden p-6">
                   <div className="reis-grid absolute inset-0" />
-                  <div className="relative flex h-full flex-col justify-between">
-                    <span className="reis-index text-xs font-bold">{item.code}</span>
+                  <div className="relative flex min-h-40 flex-col justify-between">
+                    <span className="reis-index text-xs font-bold">{code}</span>
                     <div>
                       <div className="mb-5 flex items-center gap-3">
                         <div className="reis-small-icon grid h-11 w-11 place-items-center rounded-xl"><BookOpen size={21} /></div>
                         <span className="text-sm font-semibold opacity-70">Featured figure</span>
                       </div>
-                      <h3 className="text-2xl font-bold">{item.figure}</h3>
-                      <div className="mt-5 flex items-center gap-2 opacity-70">
-                        <span className="h-2 w-2 rounded-full bg-[#28b8ff]" />
-                        <span className="h-px flex-1 bg-gradient-to-r from-[#28b8ff] to-transparent" />
-                        <span className="h-2 w-2 rounded-full bg-[#087cff]" />
-                      </div>
+                      <h3 className="text-2xl font-bold">{figure}</h3>
+                      <div className="mt-5 flex items-center gap-2 opacity-70"><span className="h-2 w-2 rounded-full bg-[#28b8ff]" /><span className="h-px flex-1 bg-gradient-to-r from-[#28b8ff] to-transparent" /><span className="h-2 w-2 rounded-full bg-[#087cff]" /></div>
                     </div>
                   </div>
                 </div>
                 <div className="p-7">
-                  <h3 className="text-2xl font-semibold">{item.title}</h3>
-                  <p className="mt-4 leading-7 opacity-68">{item.summary}</p>
-                  <div className="mt-6 flex flex-wrap gap-2">
-                    {item.tags.map((tag) => <span key={tag} className="about-tag rounded-full px-3 py-1.5 text-xs font-semibold">{tag}</span>)}
-                  </div>
+                  <h3 className="text-2xl font-semibold">{title}</h3>
+                  <p className="mt-4 leading-7 opacity-70">{summary}</p>
+                  <div className="mt-6 flex flex-wrap gap-2">{tags.map((tag) => <span key={tag} className="about-tag rounded-full px-3 py-1.5 text-xs font-semibold">{tag}</span>)}</div>
                 </div>
               </article>
             ))}
@@ -291,19 +235,18 @@ function AboutPage() {
       <section className="reis-section py-24">
         <div className="mx-auto grid max-w-[1440px] items-center gap-12 px-6 lg:grid-cols-2 lg:px-10">
           <div>
-            <p className="reis-eyebrow text-sm font-bold uppercase tracking-[0.22em]">Global outlook</p>
-            <h2 className="mt-5 text-4xl font-bold tracking-[-0.04em] sm:text-5xl">Global engineering practices. Regional understanding.</h2>
+            <SectionLead eyebrow="Global outlook" title="Global engineering practices. Regional understanding." />
             <p className="mt-6 text-lg leading-8 opacity-70">
               Headquartered in the United Kingdom and building for international markets, REIS combines globally recognised engineering practices with deep understanding of African and emerging-market transformation needs.
             </p>
           </div>
           <div className="reis-panel rounded-3xl border p-8">
             <div className="grid gap-4 sm:grid-cols-2">
-              {[[Globe2, "United Kingdom", "Corporate and engineering base"], [Landmark, "Nigeria", "Priority transformation market"], [Compass, "Africa", "Regional growth and impact"], [Sparkles, "Global", "Standards-led delivery outlook"]].map(([Icon, title, text]) => (
-                <div key={String(title)} className="rounded-2xl border border-current/10 p-5">
+              {outlook.map(([Icon, title, text]) => (
+                <div key={title} className="rounded-2xl border border-current/10 p-5">
                   <Icon className="reis-accent-text" size={24} />
-                  <h3 className="mt-5 font-semibold">{String(title)}</h3>
-                  <p className="mt-2 text-sm leading-6 opacity-65">{String(text)}</p>
+                  <h3 className="mt-5 font-semibold">{title}</h3>
+                  <p className="mt-2 text-sm leading-6 opacity-65">{text}</p>
                 </div>
               ))}
             </div>
@@ -315,12 +258,7 @@ function AboutPage() {
         <div className="mx-auto max-w-[1440px] px-6 lg:px-10">
           <SectionHeader dark eyebrow="Leadership philosophy" title="Principles that guide every engagement" text="REIS applies a consistent decision philosophy across research, architecture, engineering and delivery." />
           <div className="mt-12 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-            {principles.map((principle) => (
-              <div key={principle} className="reis-solution-card flex items-center gap-4 rounded-2xl border p-5">
-                <div className="reis-check grid h-9 w-9 shrink-0 place-items-center rounded-full"><Check size={17} /></div>
-                <span className="font-semibold">{principle}</span>
-              </div>
-            ))}
+            {principles.map((principle) => <CheckCard key={principle} dark>{principle}</CheckCard>)}
           </div>
         </div>
       </section>
@@ -344,10 +282,22 @@ function AboutPage() {
   );
 }
 
-function ReisMark() {
-  return <div className="relative h-11 w-11" aria-hidden="true"><span className="absolute left-1 top-1 h-4 w-8 rotate-[-35deg] rounded-md bg-[#28b8ff]" /><span className="absolute left-3 top-4 h-4 w-8 rotate-[-35deg] rounded-md bg-[#087cff]" /><span className="absolute left-1 top-7 h-4 w-8 rotate-[-35deg] rounded-md bg-[#1366d8]" /></div>;
+function SiteHeader({ mobileOpen, setMobileOpen }: { mobileOpen: boolean; setMobileOpen: (value: boolean) => void }) {
+  return (
+    <header className="reis-header fixed inset-x-0 top-0 z-50 border-b backdrop-blur-xl">
+      <div className="mx-auto flex h-20 max-w-[1440px] items-center justify-between px-6 lg:px-10">
+        <a href="/" className="flex items-center gap-3" aria-label="REIS Global home"><ReisMark /><div><div className="text-xl font-bold tracking-[0.04em]">REIS GLOBAL</div><div className="text-[9px] uppercase tracking-[0.18em] opacity-65">Research · Engineering · Innovation · Solutions</div></div></a>
+        <nav className="hidden items-center gap-7 text-sm lg:flex"><a className="reis-nav-link text-white" href="/about">About</a><a className="reis-nav-link" href="/#capabilities">Capabilities</a><a className="reis-nav-link" href="/#solutions">Solutions</a><a className="reis-nav-link" href="/#industries">Industries</a><a className="reis-nav-link" href="/#research">Research</a></nav>
+        <a href="/#contact" className="reis-primary-button hidden items-center gap-2 rounded-lg px-5 py-3 text-sm font-semibold lg:inline-flex">Start a conversation <ArrowRight size={16} /></a>
+        <button type="button" className="reis-icon-button lg:hidden" onClick={() => setMobileOpen(!mobileOpen)} aria-label="Toggle navigation">{mobileOpen ? <X /> : <Menu />}</button>
+      </div>
+      {mobileOpen && <div className="reis-mobile-menu border-t px-6 py-5 lg:hidden"><nav className="flex flex-col gap-4"><a href="/about">About</a><a href="/#capabilities">Capabilities</a><a href="/#solutions">Solutions</a><a href="/#industries">Industries</a><a href="/#research">Research</a><a href="/#contact">Contact</a></nav></div>}
+    </header>
+  );
 }
 
-function SectionHeader({ eyebrow, title, text, dark = false }: { eyebrow: string; title: string; text: string; dark?: boolean }) {
-  return <div className="max-w-3xl"><p className="reis-eyebrow text-sm font-bold uppercase tracking-[0.22em]">{eyebrow}</p><h2 className={`mt-5 text-4xl font-bold tracking-[-0.04em] sm:text-5xl ${dark ? "text-white" : ""}`}>{title}</h2><p className={`mt-6 text-lg leading-8 ${dark ? "text-white/65" : "opacity-65"}`}>{text}</p></div>;
-}
+function ReisMark() { return <div className="relative h-11 w-11" aria-hidden="true"><span className="absolute left-1 top-1 h-4 w-8 rotate-[-35deg] rounded-md bg-[#28b8ff]" /><span className="absolute left-3 top-4 h-4 w-8 rotate-[-35deg] rounded-md bg-[#087cff]" /><span className="absolute left-1 top-7 h-4 w-8 rotate-[-35deg] rounded-md bg-[#1366d8]" /></div>; }
+function SectionLead({ eyebrow, title }: { eyebrow: string; title: string }) { return <div><p className="reis-eyebrow text-sm font-bold uppercase tracking-[0.22em]">{eyebrow}</p><h2 className="mt-5 text-4xl font-bold tracking-[-0.04em] sm:text-5xl">{title}</h2></div>; }
+function SectionHeader({ eyebrow, title, text, dark = false }: { eyebrow: string; title: string; text: string; dark?: boolean }) { return <div className="max-w-3xl"><p className="reis-eyebrow text-sm font-bold uppercase tracking-[0.22em]">{eyebrow}</p><h2 className={`mt-5 text-4xl font-bold tracking-[-0.04em] sm:text-5xl ${dark ? "text-white" : ""}`}>{title}</h2><p className={`mt-6 text-lg leading-8 ${dark ? "text-white/65" : "opacity-65"}`}>{text}</p></div>; }
+function StatementCard({ eyebrow, children }: { eyebrow: string; children: React.ReactNode }) { return <article className="reis-panel rounded-3xl border p-8 sm:p-10"><p className="reis-eyebrow text-sm font-bold uppercase tracking-[0.22em]">{eyebrow}</p><h2 className="mt-6 text-3xl font-bold leading-tight tracking-[-0.04em] sm:text-4xl">{children}</h2></article>; }
+function CheckCard({ children, dark = false }: { children: React.ReactNode; dark?: boolean }) { return <div className={`${dark ? "reis-solution-card" : "reis-panel"} flex items-center gap-4 rounded-2xl border p-5`}><div className="reis-check grid h-9 w-9 shrink-0 place-items-center rounded-full"><Check size={17} /></div><span className="font-semibold">{children}</span></div>; }
