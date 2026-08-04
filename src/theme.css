@@ -57,7 +57,7 @@ textarea:focus-visible {
 
 .dark .reis-header a[aria-label="REIS Global home"] > .relative.h-11.w-11,
 .dark .reis-footer .relative.h-11.w-11 {
-  background-image: url('/reis-globe.svg');
+  background-image: url('/reis-globe-light.svg');
 }
 
 .reis-header a[aria-label="REIS Global home"] > div:last-child > div:first-child,
