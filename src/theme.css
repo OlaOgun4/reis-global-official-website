@@ -47,13 +47,7 @@ textarea:focus-visible {
 .reis-header a[aria-label="REIS Global home"] > .relative.h-11.w-11,
 .reis-footer .relative.h-11.w-11 {
   flex: 0 0 2.75rem;
-  border-radius: .7rem;
-  background-color: rgba(255,255,255,.98);
-  background-image: url('/reis-mark.svg');
-  background-position: center;
-  background-size: 82% 82%;
-  background-repeat: no-repeat;
-  box-shadow: 0 6px 18px rgba(0,31,79,.16);
+  background: url('/reis-mark.svg') center / contain no-repeat;
 }
 
 .reis-header a[aria-label="REIS Global home"] > .relative.h-11.w-11 > span,
@@ -63,11 +57,7 @@ textarea:focus-visible {
 
 .dark .reis-header a[aria-label="REIS Global home"] > .relative.h-11.w-11,
 .dark .reis-footer .relative.h-11.w-11 {
-  border-radius: 9999px;
-  background-color: transparent;
   background-image: url('/reis-globe.svg');
-  background-size: contain;
-  box-shadow: none;
 }
 
 .reis-header a[aria-label="REIS Global home"] > div:last-child > div:first-child,
