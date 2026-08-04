@@ -52,7 +52,7 @@ div {
   box-shadow: 0 14px 40px rgba(0, 0, 0, 0.34);
 }
 
-/* Solutions section: light mode */
+/* Solutions and other intentionally dark panels become light in light mode. */
 :root:not(.dark) .reis-dark-section {
   background:
     radial-gradient(circle at 80% 10%, rgba(0, 112, 255, 0.12), transparent 28%),
@@ -107,7 +107,6 @@ div {
   color: #087cff !important;
 }
 
-/* Solutions section: dark mode */
 .dark .reis-dark-section {
   background:
     radial-gradient(circle at 80% 10%, rgba(0, 112, 255, 0.16), transparent 24%),
@@ -135,6 +134,34 @@ div {
 .dark .reis-solution-card p {
   color: rgba(255, 255, 255, 0.66) !important;
   opacity: 1 !important;
+}
+
+.about-figure-preview {
+  background:
+    radial-gradient(circle at 75% 25%, rgba(21, 155, 255, 0.2), transparent 36%),
+    linear-gradient(145deg, #e7f2ff, #f8fbff);
+  color: #0c2449;
+  border-bottom: 1px solid rgba(24, 101, 192, 0.14);
+}
+
+.dark .about-figure-preview {
+  background:
+    radial-gradient(circle at 75% 25%, rgba(21, 155, 255, 0.2), transparent 36%),
+    linear-gradient(145deg, #0b2349, #07162f);
+  color: #f4f8ff;
+  border-bottom-color: rgba(66, 148, 255, 0.18);
+}
+
+.about-tag {
+  border: 1px solid rgba(13, 140, 255, 0.22);
+  background: rgba(13, 140, 255, 0.08);
+  color: #0767c7;
+}
+
+.dark .about-tag {
+  border-color: rgba(43, 170, 255, 0.25);
+  background: rgba(43, 170, 255, 0.1);
+  color: #75d0ff;
 }
 
 @media (min-width: 1024px) {
