@@ -6,7 +6,7 @@ import {
   BrainCircuit,
   Check,
   FileText,
-  Framework,
+  LayoutTemplate,
   Globe2,
   Landmark,
   Layers3,
@@ -86,7 +86,7 @@ const featured = [
 
 const categories = [
   [BookOpen, "Standards", "Engineering, security, governance and delivery standards."],
-  [Framework, "Frameworks", "Transformation, operating-model and decision frameworks."],
+  [LayoutTemplate, "Frameworks", "Transformation, operating-model and decision frameworks."],
   [Boxes, "Reference Architectures", "Reusable business, data, application and technology architectures."],
   [FileText, "Publications", "Executive papers, implementation specifications and technical guidance."],
   [Network, "Engineering Figures", "Architecture diagrams, process models and decision pathways."],
