@@ -268,7 +268,7 @@ function AboutPage() {
           <p className="text-sm font-bold uppercase tracking-[0.22em] opacity-70">REIS Global</p>
           <h2 className="mt-5 text-5xl font-bold tracking-[-0.05em] sm:text-6xl">Engineering a better digital future.</h2>
           <p className="mt-6 max-w-2xl text-lg leading-8 opacity-75">Research informs our thinking. Engineering delivers our solutions. Innovation creates lasting value.</p>
-          <a href="mailto:hello@reis-global.com" className="reis-primary-button mt-9 inline-flex items-center gap-2 rounded-lg px-7 py-4 font-semibold">Start a conversation <ArrowRight size={18} /></a>
+          <a href="mailto:ola.reis.global@gmail.com" className="reis-primary-button mt-9 inline-flex items-center gap-2 rounded-lg px-7 py-4 font-semibold">Start a conversation <ArrowRight size={18} /></a>
         </div>
       </section>
 
