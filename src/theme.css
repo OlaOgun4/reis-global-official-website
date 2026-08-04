@@ -45,9 +45,9 @@ textarea:focus-visible {
 
 .reis-theme-toggle {
   position: fixed;
-  right: 1.5rem;
-  bottom: 1.5rem;
-  z-index: 80;
+  right: 4.75rem;
+  top: 1rem;
+  z-index: 90;
   display: inline-flex;
   height: 3rem;
   width: 3rem;
@@ -57,7 +57,7 @@ textarea:focus-visible {
   border: 1px solid rgba(42, 161, 255, 0.42);
   background: rgba(5, 24, 53, 0.92);
   color: #55c5ff;
-  box-shadow: 0 14px 40px rgba(0, 67, 145, 0.28);
+  box-shadow: 0 10px 30px rgba(0, 67, 145, 0.26);
   backdrop-filter: blur(16px);
 }
 
@@ -65,7 +65,7 @@ textarea:focus-visible {
   transform: translateY(-2px);
   border-color: #2caeff;
   color: #ffffff;
-  box-shadow: 0 16px 44px rgba(0, 118, 255, 0.38);
+  box-shadow: 0 14px 36px rgba(0, 118, 255, 0.36);
 }
 
 .reis-theme-toggle:focus-visible {
@@ -77,7 +77,7 @@ textarea:focus-visible {
   border-color: rgba(42, 161, 255, 0.34);
   background: rgba(241, 247, 255, 0.94);
   color: #075fc7;
-  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.34);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 :root:not(.dark) .reis-dark-section {
@@ -184,11 +184,19 @@ textarea:focus-visible {
 }
 
 @media (min-width: 1024px) {
-  .reis-theme-toggle { right: 2rem; bottom: 2rem; }
+  .reis-theme-toggle {
+    right: 13.75rem;
+    top: 1rem;
+  }
 }
 
-@media (max-width: 640px) {
-  .reis-theme-toggle { right: 1rem; bottom: 1rem; }
+@media (max-width: 390px) {
+  .reis-theme-toggle {
+    right: 4.25rem;
+    height: 2.75rem;
+    width: 2.75rem;
+    top: 1.125rem;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
