@@ -131,7 +131,7 @@ function ContactPage() {
 
           <div className="reis-panel rounded-[2rem] border p-7 sm:p-9">
             <div className="grid gap-5 sm:grid-cols-2">
-              <ContactTile icon={Mail} title="Email" text="ola.reis.global@gmail.com" href="mailto:ola.reis.global@gmail.com" />
+              <ContactTile icon={Mail} title="Email" text="info@reis-global.com" href="mailto:info@reis-global.com" />
               <ContactTile icon={MapPin} title="Primary location" text="United Kingdom" />
               <ContactTile icon={Globe2} title="Market focus" text="United Kingdom, Africa and international markets" />
               <ContactTile icon={ShieldCheck} title="Engagement model" text="Secure, structured and outcome-focused" />
