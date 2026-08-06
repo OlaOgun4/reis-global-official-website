@@ -382,7 +382,7 @@ function CapabilitiesPage() {
           <div>
             <h3 className="font-semibold">Contact</h3>
             <div className="mt-4 flex flex-col gap-3 text-sm opacity-60">
-              <a href="mailto:info@reis-global.com">info@reis-global.com</a>
+              <a href="mailto:ola.reis.global@gmail.com">ola.reis.global@gmail.com</a>
               <span>United Kingdom</span>
               <span>Serving clients globally</span>
             </div>

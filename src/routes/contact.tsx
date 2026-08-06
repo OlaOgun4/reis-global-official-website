@@ -131,7 +131,7 @@ function ContactPage() {
 
           <div className="reis-panel rounded-[2rem] border p-7 sm:p-9">
             <div className="grid gap-5 sm:grid-cols-2">
-              <ContactTile icon={Mail} title="Email" text="info@reis-global.com" href="mailto:info@reis-global.com" />
+              <ContactTile icon={Mail} title="Email" text="ola.reis.global@gmail.com" href="mailto:ola.reis.global@gmail.com" />
               <ContactTile icon={MapPin} title="Primary location" text="United Kingdom" />
               <ContactTile icon={Globe2} title="Market focus" text="United Kingdom, Africa and international markets" />
               <ContactTile icon={ShieldCheck} title="Engagement model" text="Secure, structured and outcome-focused" />
@@ -189,9 +189,9 @@ function ContactPage() {
                 <div className="reis-check grid h-16 w-16 place-items-center rounded-full"><CheckCircle2 size={30} /></div>
                 <h3 className="mt-6 text-2xl font-semibold">Enquiry prepared</h3>
                 <p className="mt-3 max-w-md leading-7 opacity-65">
-                  The Version 1.0 form is currently a front-end demonstration. Please email your enquiry to info@reis-global.com while the production mail service is being configured.
+                  The Version 1.0 form is currently a front-end demonstration. Please email your enquiry to ola.reis.global@gmail.com while the production mail service is being configured.
                 </p>
-                <a href="mailto:info@reis-global.com" className="reis-primary-button mt-7 inline-flex items-center gap-2 rounded-lg px-6 py-3 font-semibold">
+                <a href="mailto:ola.reis.global@gmail.com" className="reis-primary-button mt-7 inline-flex items-center gap-2 rounded-lg px-6 py-3 font-semibold">
                   Email REIS Global <Mail size={17} />
                 </a>
               </div>
@@ -236,7 +236,7 @@ function ContactPage() {
           <p className="text-sm font-bold uppercase tracking-[0.22em] opacity-70">Research · Engineering · Innovation · Solutions</p>
           <h2 className="mt-5 text-5xl font-bold tracking-[-0.05em] sm:text-6xl">Start the right conversation.</h2>
           <p className="mt-6 max-w-2xl text-lg leading-8 opacity-70">Connect with REIS Global to explore how research-led engineering can support your next transformation initiative.</p>
-          <a href="mailto:info@reis-global.com" className="reis-primary-button mt-9 inline-flex items-center gap-2 rounded-lg px-7 py-4 font-semibold">Contact REIS Global <ArrowRight size={18} /></a>
+          <a href="mailto:ola.reis.global@gmail.com" className="reis-primary-button mt-9 inline-flex items-center gap-2 rounded-lg px-7 py-4 font-semibold">Contact REIS Global <ArrowRight size={18} /></a>
         </div>
       </section>
 
@@ -254,7 +254,7 @@ function ContactPage() {
           </div>
           <div>
             <h3 className="font-semibold">Contact</h3>
-            <div className="mt-4 flex flex-col gap-3 text-sm opacity-60"><a href="mailto:info@reis-global.com">info@reis-global.com</a><span>United Kingdom</span><span>Serving clients globally</span></div>
+            <div className="mt-4 flex flex-col gap-3 text-sm opacity-60"><a href="mailto:ola.reis.global@gmail.com">ola.reis.global@gmail.com</a><span>United Kingdom</span><span>Serving clients globally</span></div>
           </div>
         </div>
         <div className="mx-auto flex max-w-[1440px] flex-col gap-2 border-t px-6 py-6 text-xs opacity-45 sm:flex-row sm:justify-between lg:px-10"><span>© 2026 REIS Global Ltd. All rights reserved.</span><span>Research · Engineering · Innovation · Solutions</span></div>
