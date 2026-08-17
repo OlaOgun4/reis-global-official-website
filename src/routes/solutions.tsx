@@ -3,11 +3,10 @@ import {
   ArrowLeft,
   ArrowRight,
   BrainCircuit,
-  Building2,
   Check,
   Cloud,
   Database,
-  Landmark,
+  Eye,
   Leaf,
   Menu,
   Network,
@@ -19,6 +18,12 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import { DigitalGlobe } from "../components/digital-globe";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogTitle,
+} from "../components/ui/dialog";
 
 export const Route = createFileRoute("/solutions")({
   head: () => ({
@@ -45,57 +50,93 @@ const solutions = [
   {
     icon: Users,
     title: "GovVisit",
-    challenge: "Secure, auditable and efficient visitor management for government and enterprise facilities.",
-    overview:
-      "A mobile and web platform combining identity capture, OCR, visitor workflows, role-based administration, QR passes, audit trails and reporting.",
-    capabilities: ["OCR and identity capture", "Mobile reception", "RBAC and audit trails", "QR and digital passes"],
+    category: "Secure Operations",
+    challenge: "Modernising visitor operations while strengthening control, accountability and service quality.",
+    overview: "A secure visitor-management concept demonstrating how connected digital journeys can improve reception, oversight and operational confidence.",
+    capabilities: ["Digital service design", "Identity-enabled workflows", "Operational governance", "Management insight"],
+    outcomes: ["More consistent visitor journeys", "Stronger operational oversight", "Improved accountability"],
+    pathway: ["Arrive", "Verify", "Connect", "Assure"],
     industries: ["Government", "Defence", "Enterprise"],
-    publication: "GovVisit AI Build Specification",
-    figure: "GovVisit Platform Architecture",
+    status: "Demonstrator",
+    disclaimer: null,
   },
   {
     icon: Leaf,
     title: "Farm Naturale",
-    challenge: "Fragmented access to agricultural learning, commerce, support and finance.",
-    overview:
-      "An integrated agriculture platform that connects education, marketplace services, advisory support, buy-back models, finance and analytics.",
-    capabilities: ["Digital learning", "Agri-commerce", "Advisory services", "Farmer analytics"],
+    category: "Digital Agriculture",
+    challenge: "Connecting fragmented agricultural knowledge, services and market opportunities.",
+    overview: "An integrated agriculture concept showing how learning, advisory support and commercial participation can be brought into one coherent experience.",
+    capabilities: ["Platform strategy", "Digital learning", "Ecosystem design", "Data-informed services"],
+    outcomes: ["Clearer access to support", "Connected participant journeys", "Scalable service foundations"],
+    pathway: ["Learn", "Grow", "Participate", "Improve"],
     industries: ["Agriculture", "Education", "Commerce"],
-    publication: "Digital Agriculture Platform Reference Architecture",
-    figure: "Integrated Agriculture Ecosystem",
+    status: "Demonstrator",
+    disclaimer: null,
+  },
+  {
+    icon: Sparkles,
+    title: "NaijaResolve",
+    category: "Citizen Services",
+    challenge: "Helping people navigate everyday public-service problems through clear, trusted digital pathways.",
+    overview: "A research-led service concept exploring how structured guidance and responsible digital support can improve problem resolution.",
+    capabilities: ["Service discovery", "Citizen-centred design", "Responsible AI", "Governance by design"],
+    outcomes: ["Simpler service navigation", "More consistent guidance", "Evidence-led service improvement"],
+    pathway: ["Describe", "Understand", "Guide", "Resolve"],
+    industries: ["Government", "Public Services", "Communities"],
+    status: "Concept development",
+    disclaimer: null,
   },
   {
     icon: Scale,
     title: "National Justice Transformation",
-    challenge: "Disconnected justice processes, institutional bottlenecks and limited end-to-end visibility.",
-    overview:
-      "A transformation framework connecting courts, law enforcement, prosecution, corrections and executive decision-making around shared outcomes.",
-    capabilities: ["Process transformation", "Institutional integration", "Decision support", "Governance and traceability"],
+    category: "Institutional Transformation",
+    challenge: "Addressing fragmented processes and limited end-to-end visibility across complex justice environments.",
+    overview: "A transformation proposition demonstrating how research, operating-model design and governance can align institutions around shared outcomes.",
+    capabilities: ["Enterprise architecture", "Operating-model design", "Transformation governance", "Executive decision support"],
+    outcomes: ["Clearer institutional alignment", "Improved decision visibility", "Stronger transformation governance"],
+    pathway: ["Understand", "Align", "Govern", "Transform"],
     industries: ["Justice", "Government", "Corrections"],
-    publication: "National Justice Transformation Framework",
-    figure: "Government Decision Pathway",
+    status: "Executive proposition",
+    disclaimer: null,
   },
   {
     icon: Leaf,
-    title: "Digital Agriculture",
-    challenge: "Agricultural ecosystems that lack shared architecture, interoperable data and scalable digital services.",
-    overview:
-      "A vendor-neutral architecture for digital agriculture platforms spanning farmers, markets, data, finance, logistics, extension services and government.",
-    capabilities: ["Reference architecture", "Data interoperability", "Platform governance", "Ecosystem integration"],
+    title: "Digital Agriculture Architecture",
+    category: "Reference Architecture",
+    challenge: "Creating a shared direction for diverse agricultural participants, services and digital investments.",
+    overview: "A vendor-neutral reference approach showing how architecture and governance can support connected, scalable agricultural ecosystems.",
+    capabilities: ["Reference architecture", "Capability modelling", "Interoperability strategy", "Platform governance"],
+    outcomes: ["Shared transformation direction", "Reduced solution fragmentation", "Reusable architecture guidance"],
+    pathway: ["Map", "Standardise", "Connect", "Scale"],
     industries: ["Agriculture", "Government", "Financial Services"],
-    publication: "Digital Agriculture Platform Reference Architecture",
-    figure: "Agriculture Capability Model",
+    status: "Approved framework",
+    disclaimer: null,
   },
   {
     icon: ShieldCheck,
-    title: "National Security & Government Platforms",
-    challenge: "Mission-critical public-sector services requiring resilience, security and cross-agency coordination.",
-    overview:
-      "Secure, scalable platforms for intelligence, response, government operations, identity, collaboration and national digital transformation.",
-    capabilities: ["Mission-critical architecture", "Secure integration", "Data and intelligence", "Cross-agency workflows"],
+    title: "National Security & Response",
+    category: "Mission-Critical Platforms",
+    challenge: "Supporting coordinated decision-making in complex, high-assurance operational environments.",
+    overview: "A strategic platform proposition demonstrating REIS capability in resilient architecture, trusted information flows and multi-agency operating models.",
+    capabilities: ["Mission architecture", "Secure integration", "Information strategy", "Resilience and assurance"],
+    outcomes: ["Stronger coordination", "Improved operational awareness", "Resilient transformation foundations"],
+    pathway: ["Observe", "Coordinate", "Respond", "Learn"],
     industries: ["Government", "Defence", "Security"],
-    publication: "REIS Architecture and Security Standards",
-    figure: "National Platform Operating Model",
+    status: "Strategic proposition",
+    disclaimer: null,
+  },
+  {
+    icon: Database,
+    title: "REIS Financials",
+    category: "HMRC MTD Integration",
+    challenge: "Helping organisations navigate regulated digital tax workflows with stronger consistency, control and auditability.",
+    overview: "A financial-platform integration initiative demonstrating how REIS engineers secure connections to regulated services and supports structured VAT reporting journeys.",
+    capabilities: ["Regulated API integration", "Secure authorisation", "Workflow validation", "Audit-ready engineering"],
+    outcomes: ["More controlled reporting journeys", "Improved validation and traceability", "A foundation for compliant digital services"],
+    pathway: ["Connect", "Prepare", "Validate", "Report"],
+    industries: ["Enterprise", "Financial Services", "Professional Services"],
+    status: "Development and sandbox validation",
+    disclaimer: "REIS Financials is an independent REIS initiative. It is not an HMRC product and its inclusion does not imply HMRC endorsement or production approval.",
   },
 ] as const;
 
@@ -112,9 +153,11 @@ const lifecycle = [
 const matrix = [
   ["GovVisit", true, true, false, false, true],
   ["Farm Naturale", true, false, false, true, true],
+  ["NaijaResolve", true, false, false, false, true],
   ["Justice Transformation", true, false, true, false, false],
-  ["Digital Agriculture", true, false, false, true, true],
-  ["Security & Government Platforms", true, true, true, false, true],
+  ["Digital Agriculture Architecture", true, false, false, true, true],
+  ["National Security & Response", true, true, true, false, true],
+  ["REIS Financials", false, false, false, false, true],
 ] as const;
 
 const outcomes = [
@@ -128,6 +171,7 @@ const outcomes = [
 
 function SolutionsPage() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [activeSolution, setActiveSolution] = useState<(typeof solutions)[number] | null>(null);
 
   return (
     <main className="reis-site min-h-screen overflow-x-hidden">
@@ -176,37 +220,79 @@ function SolutionsPage() {
 
       <section id="portfolio" className="reis-section py-24">
         <div className="mx-auto max-w-[1440px] px-6 lg:px-10">
-          <SectionHeading eyebrow="Solution portfolio" title="Designed around real-world missions" text="Every REIS solution is guided by research, architecture, engineering, security, governance and continuous improvement." />
-          <div className="mt-14 space-y-6">
+          <SectionHeading eyebrow="Capability showcase" title="Selected work. Carefully presented." text="Explore concise public previews of how REIS applies research, architecture, engineering and governance to demanding transformation challenges." />
+          <div className="mt-8 flex max-w-4xl items-start gap-4 rounded-2xl border border-blue-500/20 bg-blue-500/[.06] p-5">
+            <ShieldCheck className="reis-index mt-0.5 shrink-0" size={21} />
+            <div><p className="font-semibold">Capability without over-disclosure</p><p className="mt-1 text-sm leading-6 opacity-65">These public snapshots demonstrate our approach and outcomes. Detailed architectures, security controls, implementation methods and proprietary materials remain protected.</p></div>
+          </div>
+          <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
             {solutions.map((solution, index) => (
-              <article key={solution.title} className="reis-panel overflow-hidden rounded-3xl border">
-                <div className="grid lg:grid-cols-[0.42fr_0.58fr]">
-                  <div className="about-figure-preview relative min-h-[300px] p-8 sm:p-10">
-                    <div className="absolute right-8 top-8 text-xs font-bold opacity-45">0{index + 1}</div>
-                    <div className="reis-small-icon grid h-14 w-14 place-items-center rounded-2xl"><solution.icon size={27} /></div>
-                    <p className="reis-eyebrow mt-10 text-xs font-bold uppercase tracking-[0.2em]">Featured solution</p>
-                    <h2 className="mt-3 text-3xl font-bold tracking-[-0.03em] sm:text-4xl">{solution.title}</h2>
-                    <div className="mt-8 rounded-2xl border border-current/10 bg-white/5 p-5">
-                      <p className="text-xs font-bold uppercase tracking-[0.18em] opacity-55">Featured figure</p>
-                      <p className="mt-2 font-semibold">{solution.figure}</p>
-                    </div>
-                  </div>
-                  <div className="p-8 sm:p-10">
-                    <div className="grid gap-8 xl:grid-cols-2">
-                      <div><p className="text-xs font-bold uppercase tracking-[0.18em] opacity-50">Challenge</p><p className="mt-3 leading-7 opacity-75">{solution.challenge}</p></div>
-                      <div><p className="text-xs font-bold uppercase tracking-[0.18em] opacity-50">Solution overview</p><p className="mt-3 leading-7 opacity-75">{solution.overview}</p></div>
-                    </div>
-                    <div className="mt-8 grid gap-8 xl:grid-cols-2">
-                      <div><p className="text-xs font-bold uppercase tracking-[0.18em] opacity-50">Key capabilities</p><div className="mt-4 grid gap-3">{solution.capabilities.map((item) => <div key={item} className="flex items-center gap-3"><Check size={16} className="reis-index" /><span className="text-sm">{item}</span></div>)}</div></div>
-                      <div><p className="text-xs font-bold uppercase tracking-[0.18em] opacity-50">Industries served</p><div className="mt-4 flex flex-wrap gap-2">{solution.industries.map((item) => <span key={item} className="about-tag rounded-full px-3 py-1 text-xs font-semibold">{item}</span>)}</div><p className="mt-6 text-xs font-bold uppercase tracking-[0.18em] opacity-50">Related publication</p><p className="mt-2 text-sm font-semibold">{solution.publication}</p></div>
-                    </div>
-                  </div>
+              <button
+                key={solution.title}
+                type="button"
+                className="reis-panel group overflow-hidden rounded-3xl border text-left"
+                onClick={() => setActiveSolution(solution)}
+                aria-label={`View ${solution.title} capability snapshot`}
+              >
+                <div className="about-figure-preview relative min-h-[230px] p-7">
+                  <div className="absolute right-7 top-7 text-xs font-bold opacity-45">0{index + 1}</div>
+                  <div className="reis-small-icon grid h-13 w-13 place-items-center rounded-2xl"><solution.icon size={25} /></div>
+                  <p className="reis-eyebrow mt-9 text-xs font-bold uppercase tracking-[0.2em]">{solution.category}</p>
+                  <h2 className="mt-3 text-3xl font-bold tracking-[-0.03em]">{solution.title}</h2>
+                  <div className="mt-6 flex items-center gap-2 text-sm font-semibold reis-card-link">View capability snapshot <ArrowRight size={15} className="transition-transform group-hover:translate-x-1" /></div>
                 </div>
-              </article>
+                <div className="p-7">
+                  <p className="text-xs font-bold uppercase tracking-[0.18em] opacity-50">Challenge</p>
+                  <p className="mt-3 leading-7 opacity-75">{solution.challenge}</p>
+                  <div className="mt-6 flex flex-wrap gap-2">{solution.industries.map((item) => <span key={item} className="about-tag rounded-full px-3 py-1 text-xs font-semibold">{item}</span>)}</div>
+                </div>
+              </button>
             ))}
           </div>
         </div>
       </section>
+
+      <Dialog open={activeSolution !== null} onOpenChange={(open) => { if (!open) setActiveSolution(null); }}>
+        {activeSolution && (
+          <DialogContent className="max-h-[90vh] max-w-4xl overflow-y-auto rounded-3xl border-blue-500/25 p-0">
+            <div className="about-figure-preview p-7 sm:p-9">
+              <div className="flex items-start justify-between gap-5 pr-8">
+                <div>
+                  <p className="reis-eyebrow text-xs font-bold uppercase tracking-[0.2em]">Public capability snapshot</p>
+                  <DialogTitle className="mt-3 text-3xl font-bold tracking-[-0.03em] sm:text-4xl">{activeSolution.title}</DialogTitle>
+                  <DialogDescription className="mt-3 text-base font-medium opacity-65">{activeSolution.category} · {activeSolution.status}</DialogDescription>
+                </div>
+                <div className="reis-small-icon hidden h-14 w-14 shrink-0 place-items-center rounded-2xl sm:grid"><activeSolution.icon size={27} /></div>
+              </div>
+            </div>
+            <div className="grid gap-8 p-7 sm:p-9 lg:grid-cols-[1.05fr_.95fr]">
+              <div>
+                <p className="text-xs font-bold uppercase tracking-[0.18em] opacity-50">The challenge</p>
+                <p className="mt-3 leading-7 opacity-75">{activeSolution.challenge}</p>
+                <p className="mt-7 text-xs font-bold uppercase tracking-[0.18em] opacity-50">REIS response</p>
+                <p className="mt-3 leading-7 opacity-75">{activeSolution.overview}</p>
+                {activeSolution.disclaimer && <p className="mt-4 text-xs leading-5 opacity-55">{activeSolution.disclaimer}</p>}
+                <CapabilityInfographic stages={activeSolution.pathway} />
+                <div className="mt-8 rounded-2xl border border-blue-500/20 bg-blue-500/[.06] p-5">
+                  <div className="flex items-center gap-3"><Eye className="reis-index" size={20} /><p className="font-semibold">Intentionally high level</p></div>
+                  <p className="mt-2 text-sm leading-6 opacity-65">This preview excludes proprietary methods, detailed designs, security controls and implementation material.</p>
+                </div>
+              </div>
+              <div className="space-y-7">
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-[0.18em] opacity-50">Capabilities demonstrated</p>
+                  <div className="mt-4 grid gap-3">{activeSolution.capabilities.map((item) => <div key={item} className="flex items-center gap-3"><Check size={16} className="reis-index" /><span className="text-sm font-medium">{item}</span></div>)}</div>
+                </div>
+                <div>
+                  <p className="text-xs font-bold uppercase tracking-[0.18em] opacity-50">Potential value</p>
+                  <div className="mt-4 grid gap-3">{activeSolution.outcomes.map((item) => <div key={item} className="flex items-center gap-3"><ArrowRight size={16} className="reis-index" /><span className="text-sm font-medium">{item}</span></div>)}</div>
+                </div>
+                <a href="mailto:hello@reis-global.com" className="reis-primary-button inline-flex items-center gap-2 rounded-lg px-5 py-3 text-sm font-semibold">Discuss this capability <ArrowRight size={16} /></a>
+              </div>
+            </div>
+          </DialogContent>
+        )}
+      </Dialog>
 
       <section id="lifecycle" className="reis-dark-section py-24">
         <div className="mx-auto max-w-[1440px] px-6 lg:px-10">
@@ -259,4 +345,27 @@ function ReisMark() {
 
 function SectionHeading({ eyebrow, title, text }: { eyebrow: string; title: string; text: string }) {
   return <div className="max-w-3xl"><p className="reis-eyebrow text-sm font-bold uppercase tracking-[0.22em]">{eyebrow}</p><h2 className="mt-5 text-4xl font-bold tracking-[-0.04em] sm:text-5xl">{title}</h2><p className="mt-6 text-lg leading-8 opacity-65">{text}</p></div>;
+}
+
+function CapabilityInfographic({ stages }: { stages: readonly [string, string, string, string] }) {
+  const icons = [BrainCircuit, Network, Sparkles, Check] as const;
+
+  return (
+    <div className="mt-8" aria-label="Simplified REIS capability pathway">
+      <p className="text-xs font-bold uppercase tracking-[0.18em] opacity-50">Capability pathway</p>
+      <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4">
+        {stages.map((label, index) => {
+          const Icon = icons[index];
+          return (
+            <div key={label} className="relative rounded-xl border border-blue-500/20 bg-blue-500/[.05] p-3 text-center">
+              <Icon className="reis-index mx-auto" size={19} />
+              <p className="mt-2 text-xs font-semibold">{label}</p>
+              {index < stages.length - 1 && <ArrowRight className="reis-index absolute -right-[18px] top-1/2 z-10 hidden -translate-y-1/2 sm:block" size={14} aria-hidden="true" />}
+            </div>
+          );
+        })}
+      </div>
+      <p className="mt-3 text-xs leading-5 opacity-50">Illustrative only — not a system architecture or implementation design.</p>
+    </div>
+  );
 }
