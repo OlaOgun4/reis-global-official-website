@@ -16,7 +16,7 @@ import {
   Users,
   X,
 } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { DigitalGlobe } from "../components/digital-globe";
 import {
   Dialog,
@@ -49,6 +49,7 @@ export const Route = createFileRoute("/solutions")({
 const solutions = [
   {
     icon: Users,
+    slug: "govvisit",
     title: "GovVisit",
     category: "Secure Operations",
     challenge: "Modernising visitor operations while strengthening control, accountability and service quality.",
@@ -62,6 +63,7 @@ const solutions = [
   },
   {
     icon: Leaf,
+    slug: "farm-naturale",
     title: "Farm Naturale",
     category: "Digital Agriculture",
     challenge: "Connecting fragmented agricultural knowledge, services and market opportunities.",
@@ -75,6 +77,7 @@ const solutions = [
   },
   {
     icon: Sparkles,
+    slug: "naijaresolve",
     title: "NaijaResolve",
     category: "Citizen Services",
     challenge: "Helping people navigate everyday public-service problems through clear, trusted digital pathways.",
@@ -88,6 +91,7 @@ const solutions = [
   },
   {
     icon: Scale,
+    slug: "justice-transformation",
     title: "National Justice Transformation",
     category: "Institutional Transformation",
     challenge: "Addressing fragmented processes and limited end-to-end visibility across complex justice environments.",
@@ -101,6 +105,7 @@ const solutions = [
   },
   {
     icon: Leaf,
+    slug: "digital-agriculture-architecture",
     title: "Digital Agriculture Architecture",
     category: "Reference Architecture",
     challenge: "Creating a shared direction for diverse agricultural participants, services and digital investments.",
@@ -114,6 +119,7 @@ const solutions = [
   },
   {
     icon: ShieldCheck,
+    slug: "national-security-response",
     title: "National Security & Response",
     category: "Mission-Critical Platforms",
     challenge: "Supporting coordinated decision-making in complex, high-assurance operational environments.",
@@ -127,6 +133,7 @@ const solutions = [
   },
   {
     icon: Database,
+    slug: "reis-financials",
     title: "REIS Financials",
     category: "HMRC MTD Integration",
     challenge: "Helping organisations navigate regulated digital tax workflows with stronger consistency, control and auditability.",
@@ -172,6 +179,18 @@ const outcomes = [
 function SolutionsPage() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [activeSolution, setActiveSolution] = useState<(typeof solutions)[number] | null>(null);
+
+  useEffect(() => {
+    const openLinkedSnapshot = () => {
+      const slug = window.location.hash.replace("#project-", "");
+      const linkedSolution = solutions.find((solution) => solution.slug === slug);
+      if (linkedSolution) setActiveSolution(linkedSolution);
+    };
+
+    openLinkedSnapshot();
+    window.addEventListener("hashchange", openLinkedSnapshot);
+    return () => window.removeEventListener("hashchange", openLinkedSnapshot);
+  }, []);
 
   return (
     <main className="reis-site min-h-screen overflow-x-hidden">
@@ -229,6 +248,7 @@ function SolutionsPage() {
             {solutions.map((solution, index) => (
               <button
                 key={solution.title}
+                id={`project-${solution.slug}`}
                 type="button"
                 className="reis-panel group overflow-hidden rounded-3xl border text-left"
                 onClick={() => setActiveSolution(solution)}
