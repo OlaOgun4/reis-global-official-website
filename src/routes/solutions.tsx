@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { Link, createFileRoute } from "@tanstack/react-router";
 import {
   ArrowLeft,
   ArrowRight,
@@ -226,9 +226,10 @@ function SolutionsPage() {
           </div>
           <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
             {solutions.map((solution, index) => (
-              <a
+              <Link
                 key={solution.title}
-                href={`/solutions/${solution.slug}`}
+                to="/solutions/$slug"
+                params={{ slug: solution.slug }}
                 className="reis-panel group overflow-hidden rounded-3xl border text-left"
                 aria-label={`View ${solution.title} capability page`}
               >
@@ -244,7 +245,7 @@ function SolutionsPage() {
                   <p className="mt-3 leading-7 opacity-75">{solution.challenge}</p>
                   <div className="mt-6 flex flex-wrap gap-2">{solution.industries.map((item) => <span key={item} className="about-tag rounded-full px-3 py-1 text-xs font-semibold">{item}</span>)}</div>
                 </div>
-              </a>
+              </Link>
             ))}
           </div>
         </div>
