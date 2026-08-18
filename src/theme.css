@@ -67,14 +67,16 @@ textarea:focus-visible {
 
 .reis-theme-toggle {
   position: fixed;
-  right: 4.75rem;
-  top: 1rem;
+  right: 1.25rem;
+  bottom: 1.25rem;
   z-index: 90;
   display: inline-flex;
+  gap: .55rem;
   height: 3rem;
-  width: 3rem;
+  width: auto;
   align-items: center;
   justify-content: center;
+  padding: 0 1rem;
   border-radius: 9999px;
   border: 1px solid rgba(42, 161, 255, 0.42);
   background: rgba(5, 24, 53, 0.92);
@@ -100,6 +102,23 @@ textarea:focus-visible {
   background: rgba(241, 247, 255, 0.94);
   color: #075fc7;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.reis-showcase-image {
+  filter: brightness(1.04) saturate(.9);
+  transform: scale(1.01);
+}
+
+.reis-showcase-overlay {
+  background: linear-gradient(90deg, rgba(7, 25, 51, .92) 0%, rgba(8, 31, 62, .78) 43%, rgba(10, 40, 72, .2) 78%, rgba(7, 28, 55, .34) 100%);
+}
+
+.dark .reis-showcase-image {
+  filter: brightness(.78) saturate(.86);
+}
+
+.dark .reis-showcase-overlay {
+  background: linear-gradient(90deg, rgba(3, 14, 34, .98) 0%, rgba(3, 16, 40, .88) 43%, rgba(3, 17, 42, .36) 78%, rgba(3, 17, 42, .55) 100%);
 }
 
 :root:not(.dark) .reis-dark-section {
@@ -205,19 +224,12 @@ textarea:focus-visible {
   color: #75d0ff;
 }
 
-@media (min-width: 1024px) {
-  .reis-theme-toggle {
-    right: 13.75rem;
-    top: 1rem;
-  }
-}
-
 @media (max-width: 390px) {
   .reis-theme-toggle {
-    right: 4.25rem;
+    right: .85rem;
+    bottom: .85rem;
     height: 2.75rem;
-    width: 2.75rem;
-    top: 1.125rem;
+    padding: 0 .85rem;
   }
 
   .reis-header a[aria-label="REIS Global home"] > .relative.h-11.w-11 {

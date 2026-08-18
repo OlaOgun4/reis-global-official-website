@@ -131,16 +131,16 @@ function SolutionShowcasePage() {
         {mobileOpen && <div className="reis-mobile-menu border-t px-6 py-5 lg:hidden"><nav className="flex flex-col gap-4"><a href="/about">About</a><a href="/capabilities">Capabilities</a><a href="/solutions">Solutions</a><a href="/industries">Industries</a><a href="/research">Research</a></nav></div>}
       </header>
 
-      <section className="relative isolate min-h-[680px] overflow-hidden pt-20 text-white">
-        <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${showcase.image})` }} aria-hidden="true" />
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(3,14,34,.98)_0%,rgba(3,16,40,.88)_42%,rgba(3,17,42,.36)_78%,rgba(3,17,42,.55)_100%)]" />
-        <div className="relative mx-auto flex min-h-[600px] max-w-[1440px] items-center px-6 py-20 lg:px-10">
+      <section className="reis-showcase-hero relative isolate min-h-[600px] overflow-hidden pt-20 text-white sm:min-h-[540px] lg:min-h-[520px]">
+        <div className="reis-showcase-image absolute inset-0 bg-cover bg-center" style={{ backgroundImage: `url(${showcase.image})` }} aria-hidden="true" />
+        <div className="reis-showcase-overlay absolute inset-0" aria-hidden="true" />
+        <div className="relative mx-auto flex min-h-[520px] max-w-[1440px] items-center px-6 py-12 sm:min-h-[460px] lg:min-h-[440px] lg:px-10">
           <div className="max-w-3xl">
-            <a href="/solutions" className="mb-9 inline-flex items-center gap-2 text-sm font-semibold text-white/75 hover:text-[#55c5ff]"><ArrowLeft size={16} /> All capabilities</a>
+            <a href="/solutions" className="mb-6 inline-flex items-center gap-2 text-sm font-semibold text-white/75 hover:text-[#55c5ff]"><ArrowLeft size={16} /> All capabilities</a>
             <p className="text-sm font-bold uppercase tracking-[0.24em] text-[#55c5ff]">{showcase.category}</p>
-            <h1 className="mt-6 text-5xl font-bold leading-[1.02] tracking-[-0.05em] sm:text-6xl xl:text-7xl">{showcase.title}</h1>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-white/70">{showcase.challenge}</p>
-            <div className="mt-8 flex flex-wrap gap-2"><span className="rounded-full border border-cyan-300/25 bg-blue-500/15 px-4 py-2 text-xs font-semibold text-cyan-100">{showcase.status}</span>{showcase.industries.map((industry) => <span key={industry} className="rounded-full border border-white/15 bg-white/5 px-4 py-2 text-xs font-semibold text-white/75">{industry}</span>)}</div>
+            <h1 className="mt-4 text-4xl font-bold leading-[1.02] tracking-[-0.05em] sm:text-5xl xl:text-6xl">{showcase.title}</h1>
+            <p className="mt-5 max-w-2xl text-base leading-7 text-white/75 sm:text-lg">{showcase.challenge}</p>
+            <div className="mt-6 flex flex-wrap gap-2"><span className="rounded-full border border-cyan-300/25 bg-blue-500/15 px-4 py-2 text-xs font-semibold text-cyan-100">{showcase.status}</span>{showcase.industries.map((industry) => <span key={industry} className="rounded-full border border-white/15 bg-white/5 px-4 py-2 text-xs font-semibold text-white/80">{industry}</span>)}</div>
           </div>
         </div>
       </section>
