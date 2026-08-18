@@ -1,3 +1,4 @@
+import { SiteFooter as GlobalFooter, SiteHeader as GlobalHeader } from "../components/site-navigation";
 import { createFileRoute } from "@tanstack/react-router";
 import {
   ArrowLeft,
@@ -111,8 +112,8 @@ function AboutPage() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <main className="reis-site min-h-screen overflow-x-hidden">
-      <SiteHeader mobileOpen={mobileOpen} setMobileOpen={setMobileOpen} />
+    <main id="top" className="reis-site min-h-screen overflow-x-hidden">
+      <GlobalHeader active="/about" />
 
       <section className="reis-hero relative isolate overflow-hidden pt-20">
         <div className="reis-grid absolute inset-0" />
@@ -331,15 +332,7 @@ function AboutPage() {
         </div>
       </section>
 
-      <footer className="reis-footer border-t">
-        <div className="mx-auto flex max-w-[1440px] flex-col gap-6 px-6 py-10 sm:flex-row sm:items-center sm:justify-between lg:px-10">
-          <div className="flex items-center gap-3">
-            <ReisMark />
-            <span className="font-bold tracking-[0.05em]">REIS GLOBAL</span>
-          </div>
-          <p className="text-sm opacity-55">© 2026 REIS Global Ltd. Research · Engineering · Innovation · Solutions</p>
-        </div>
-      </footer>
+      <GlobalFooter />
     </main>
   );
 }

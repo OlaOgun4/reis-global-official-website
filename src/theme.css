@@ -224,6 +224,11 @@ textarea:focus-visible {
   color: #75d0ff;
 }
 
+
+@media (min-width: 1280px) {
+  .reis-icon-button { display: none; }
+}
+
 @media (max-width: 390px) {
   .reis-theme-toggle {
     right: .85rem;

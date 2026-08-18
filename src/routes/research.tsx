@@ -1,3 +1,4 @@
+import { SiteFooter as GlobalFooter, SiteHeader as GlobalHeader } from "../components/site-navigation";
 import { createFileRoute } from "@tanstack/react-router";
 import {
   ArrowRight,
@@ -130,40 +131,8 @@ function ResearchPage() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <main className="reis-site min-h-screen overflow-x-hidden">
-      <header className="reis-header fixed inset-x-0 top-0 z-50 border-b backdrop-blur-xl">
-        <div className="mx-auto flex h-20 max-w-[1440px] items-center justify-between px-6 lg:px-10">
-          <a href="/" className="flex items-center gap-3" aria-label="REIS Global home">
-            <ReisMark />
-            <div>
-              <div className="text-xl font-bold tracking-[0.04em]">REIS GLOBAL</div>
-              <div className="text-[9px] uppercase tracking-[0.18em] opacity-65">
-                Research · Engineering · Innovation · Solutions
-              </div>
-            </div>
-          </a>
-          <nav className="hidden items-center gap-7 text-sm lg:flex">
-            <a className="reis-nav-link" href="/about">About</a>
-            <a className="reis-nav-link" href="/capabilities">Capabilities</a>
-            <a className="reis-nav-link" href="/solutions">Solutions</a>
-            <a className="reis-nav-link" href="/industries">Industries</a>
-            <a className="reis-nav-link text-white" href="/research">Research</a>
-          </nav>
-          <a href="#contact" className="reis-primary-button hidden items-center gap-2 rounded-lg px-5 py-3 text-sm font-semibold lg:inline-flex">
-            Start a conversation <ArrowRight size={16} />
-          </a>
-          <button type="button" className="reis-icon-button lg:hidden" onClick={() => setMobileOpen((value) => !value)} aria-label="Toggle navigation">
-            {mobileOpen ? <X /> : <Menu />}
-          </button>
-        </div>
-        {mobileOpen && (
-          <div className="reis-mobile-menu border-t px-6 py-5 lg:hidden">
-            <nav className="flex flex-col gap-4">
-              <a href="/about">About</a><a href="/capabilities">Capabilities</a><a href="/solutions">Solutions</a><a href="/industries">Industries</a><a href="/research">Research</a>
-            </nav>
-          </div>
-        )}
-      </header>
+    <main id="top" className="reis-site min-h-screen overflow-x-hidden">
+      <GlobalHeader active="/research" />
 
       <section className="reis-hero relative isolate overflow-hidden pt-20">
         <div className="reis-grid absolute inset-0" /><div className="reis-stars absolute inset-0" /><div className="reis-blue-glow absolute -right-52 top-10 h-[36rem] w-[36rem] rounded-full blur-[130px]" />
@@ -282,7 +251,7 @@ function ResearchPage() {
         </div>
       </section>
 
-      <Footer />
+      <GlobalFooter />
     </main>
   );
 }

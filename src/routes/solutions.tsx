@@ -1,3 +1,4 @@
+import { SiteFooter as GlobalFooter, SiteHeader as GlobalHeader } from "../components/site-navigation";
 import { Link, createFileRoute } from "@tanstack/react-router";
 import {
   ArrowLeft,
@@ -173,35 +174,8 @@ function SolutionsPage() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   return (
-    <main className="reis-site min-h-screen overflow-x-hidden">
-      <header className="reis-header fixed inset-x-0 top-0 z-50 border-b backdrop-blur-xl">
-        <div className="mx-auto flex h-20 max-w-[1440px] items-center justify-between px-6 lg:px-10">
-          <a href="/" className="flex items-center gap-3" aria-label="REIS Global home">
-            <ReisMark />
-            <div>
-              <div className="text-xl font-bold tracking-[0.04em]">REIS GLOBAL</div>
-              <div className="text-[9px] uppercase tracking-[0.18em] opacity-65">Research · Engineering · Innovation · Solutions</div>
-            </div>
-          </a>
-          <nav className="hidden items-center gap-7 text-sm lg:flex">
-            <a className="reis-nav-link" href="/about">About</a>
-            <a className="reis-nav-link" href="/capabilities">Capabilities</a>
-            <a className="reis-nav-link text-white" href="/solutions">Solutions</a>
-            <a className="reis-nav-link" href="/#industries">Industries</a>
-            <a className="reis-nav-link" href="/#research">Research</a>
-            <a className="reis-nav-link" href="/#contact">Contact</a>
-          </nav>
-          <a href="#contact" className="reis-primary-button hidden items-center gap-2 rounded-lg px-5 py-3 text-sm font-semibold lg:inline-flex">Discuss an initiative <ArrowRight size={16} /></a>
-          <button type="button" className="reis-icon-button lg:hidden" onClick={() => setMobileOpen((value) => !value)} aria-label="Toggle navigation">{mobileOpen ? <X /> : <Menu />}</button>
-        </div>
-        {mobileOpen && (
-          <div className="reis-mobile-menu border-t px-6 py-5 lg:hidden">
-            <nav className="flex flex-col gap-4">
-              <a href="/about">About</a><a href="/capabilities">Capabilities</a><a href="/solutions">Solutions</a><a href="/#industries">Industries</a><a href="/#research">Research</a><a href="/#contact">Contact</a>
-            </nav>
-          </div>
-        )}
-      </header>
+    <main id="top" className="reis-site min-h-screen overflow-x-hidden">
+      <GlobalHeader active="/solutions" />
 
       <section className="reis-hero relative isolate overflow-hidden pt-20">
         <div className="reis-grid absolute inset-0" /><div className="reis-stars absolute inset-0" /><div className="reis-blue-glow absolute -right-56 top-10 h-[38rem] w-[38rem] rounded-full blur-[130px]" />
@@ -288,10 +262,7 @@ function SolutionsPage() {
         <div className="mx-auto flex max-w-5xl flex-col items-center text-center"><p className="text-sm font-bold uppercase tracking-[0.22em] opacity-70">Engineering solutions built to last</p><h2 className="mt-5 text-5xl font-bold tracking-[-0.05em] sm:text-6xl">Discuss your transformation initiative.</h2><p className="mt-6 max-w-2xl text-lg leading-8 opacity-75">REIS delivers research-led engineering that creates secure, scalable and sustainable digital transformation.</p><a href="mailto:info@reis-global.com" className="reis-primary-button mt-9 inline-flex items-center gap-2 rounded-lg px-7 py-4 font-semibold">Start a conversation <ArrowRight size={18} /></a></div>
       </section>
 
-      <footer className="reis-footer border-t">
-        <div className="mx-auto grid max-w-[1440px] gap-10 px-6 py-14 md:grid-cols-2 lg:grid-cols-4 lg:px-10"><div className="lg:col-span-2"><div className="flex items-center gap-3"><ReisMark /><span className="text-xl font-bold tracking-[0.05em]">REIS GLOBAL</span></div><p className="mt-5 max-w-md leading-7 opacity-60">Research, engineering, innovation and solutions for governments, enterprises and communities.</p></div><div><h3 className="font-semibold">Explore</h3><div className="mt-4 flex flex-col gap-3 text-sm opacity-60"><a href="/about">About</a><a href="/capabilities">Capabilities</a><a href="/solutions">Solutions</a><a href="/#research">Research</a></div></div><div><h3 className="font-semibold">Contact</h3><div className="mt-4 flex flex-col gap-3 text-sm opacity-60"><a href="mailto:info@reis-global.com">info@reis-global.com</a><span>United Kingdom</span><span>Serving clients globally</span></div></div></div>
-        <div className="mx-auto flex max-w-[1440px] flex-col gap-2 border-t px-6 py-6 text-xs opacity-45 sm:flex-row sm:justify-between lg:px-10"><span>© 2026 REIS Global Ltd. All rights reserved.</span><span>Research · Engineering · Innovation · Solutions</span></div>
-      </footer>
+      <GlobalFooter />
     </main>
   );
 }
