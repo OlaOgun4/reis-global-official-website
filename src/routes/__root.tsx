@@ -169,6 +169,7 @@ function ThemeController() {
       title={isDark ? "Switch to light mode" : "Switch to dark mode"}
     >
       {isDark ? <Sun size={20} aria-hidden="true" /> : <Moon size={20} aria-hidden="true" />}
+      <span>{isDark ? "Light mode" : "Dark mode"}</span>
     </button>
   );
 }
