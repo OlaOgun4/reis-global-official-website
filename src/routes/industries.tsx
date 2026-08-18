@@ -43,6 +43,7 @@ export const Route = createFileRoute("/industries")({
 const industries = [
   {
     icon: Landmark,
+    slug: "government-public-sector",
     title: "Government & Public Sector",
     challenge:
       "Modernising public services while maintaining accountability, interoperability and citizen trust.",
@@ -53,6 +54,7 @@ const industries = [
   },
   {
     icon: ShieldCheck,
+    slug: "defence-security",
     title: "Defence & Security",
     challenge:
       "Delivering mission-critical capabilities across complex, high-assurance environments.",
@@ -63,6 +65,7 @@ const industries = [
   },
   {
     icon: Scale,
+    slug: "justice-law",
     title: "Justice & Law",
     challenge:
       "Reducing fragmentation across justice, corrections and associated institutions.",
@@ -73,6 +76,7 @@ const industries = [
   },
   {
     icon: Leaf,
+    slug: "agriculture-food-systems",
     title: "Agriculture & Food Systems",
     challenge:
       "Connecting knowledge, markets, finance, data and farm operations in one ecosystem.",
@@ -83,6 +87,7 @@ const industries = [
   },
   {
     icon: HeartPulse,
+    slug: "healthcare",
     title: "Healthcare",
     challenge:
       "Improving access, coordination and trusted information across health services.",
@@ -93,6 +98,7 @@ const industries = [
   },
   {
     icon: GraduationCap,
+    slug: "education-knowledge",
     title: "Education & Knowledge",
     challenge:
       "Scaling access to learning while improving administration, insight and knowledge transfer.",
@@ -103,6 +109,7 @@ const industries = [
   },
   {
     icon: Building2,
+    slug: "enterprise-commercial",
     title: "Enterprise & Commercial",
     challenge:
       "Modernising fragmented systems while protecting continuity, performance and customer value.",
@@ -159,8 +166,8 @@ function IndustriesPage() {
             text="Each engagement combines domain understanding, architecture, engineering and delivery discipline rather than applying a generic technology template."
           />
           <div className="mt-12 grid gap-6 lg:grid-cols-2">
-            {industries.map(({ icon: Icon, title, challenge, capabilities, solutions, knowledge, outcome }, index) => (
-              <article key={title} className="reis-panel overflow-hidden rounded-3xl border">
+            {industries.map(({ slug, icon: Icon, title, challenge, capabilities, solutions, knowledge, outcome }, index) => (
+              <article id={slug} key={title} className="reis-panel scroll-mt-28 overflow-hidden rounded-3xl border">
                 <div className="about-figure-preview p-7">
                   <div className="flex items-start justify-between gap-4">
                     <div className="reis-small-icon grid h-13 w-13 place-items-center rounded-2xl"><Icon size={25} /></div>
