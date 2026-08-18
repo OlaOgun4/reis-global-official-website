@@ -6,7 +6,6 @@ import {
   Check,
   Cloud,
   Database,
-  Eye,
   Leaf,
   Menu,
   Network,
@@ -16,14 +15,8 @@ import {
   Users,
   X,
 } from "lucide-react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { DigitalGlobe } from "../components/digital-globe";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogTitle,
-} from "../components/ui/dialog";
 
 export const Route = createFileRoute("/solutions")({
   head: () => ({
@@ -178,19 +171,6 @@ const outcomes = [
 
 function SolutionsPage() {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [activeSolution, setActiveSolution] = useState<(typeof solutions)[number] | null>(null);
-
-  useEffect(() => {
-    const openLinkedSnapshot = () => {
-      const slug = window.location.hash.replace("#project-", "");
-      const linkedSolution = solutions.find((solution) => solution.slug === slug);
-      if (linkedSolution) setActiveSolution(linkedSolution);
-    };
-
-    openLinkedSnapshot();
-    window.addEventListener("hashchange", openLinkedSnapshot);
-    return () => window.removeEventListener("hashchange", openLinkedSnapshot);
-  }, []);
 
   return (
     <main className="reis-site min-h-screen overflow-x-hidden">
@@ -246,73 +226,29 @@ function SolutionsPage() {
           </div>
           <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
             {solutions.map((solution, index) => (
-              <button
+              <a
                 key={solution.title}
-                id={`project-${solution.slug}`}
-                type="button"
+                href={`/solutions/${solution.slug}`}
                 className="reis-panel group overflow-hidden rounded-3xl border text-left"
-                onClick={() => setActiveSolution(solution)}
-                aria-label={`View ${solution.title} capability snapshot`}
+                aria-label={`View ${solution.title} capability page`}
               >
                 <div className="about-figure-preview relative min-h-[230px] p-7">
                   <div className="absolute right-7 top-7 text-xs font-bold opacity-45">0{index + 1}</div>
                   <div className="reis-small-icon grid h-13 w-13 place-items-center rounded-2xl"><solution.icon size={25} /></div>
                   <p className="reis-eyebrow mt-9 text-xs font-bold uppercase tracking-[0.2em]">{solution.category}</p>
                   <h2 className="mt-3 text-3xl font-bold tracking-[-0.03em]">{solution.title}</h2>
-                  <div className="mt-6 flex items-center gap-2 text-sm font-semibold reis-card-link">View capability snapshot <ArrowRight size={15} className="transition-transform group-hover:translate-x-1" /></div>
+                  <div className="mt-6 flex items-center gap-2 text-sm font-semibold reis-card-link">View capability page <ArrowRight size={15} className="transition-transform group-hover:translate-x-1" /></div>
                 </div>
                 <div className="p-7">
                   <p className="text-xs font-bold uppercase tracking-[0.18em] opacity-50">Challenge</p>
                   <p className="mt-3 leading-7 opacity-75">{solution.challenge}</p>
                   <div className="mt-6 flex flex-wrap gap-2">{solution.industries.map((item) => <span key={item} className="about-tag rounded-full px-3 py-1 text-xs font-semibold">{item}</span>)}</div>
                 </div>
-              </button>
+              </a>
             ))}
           </div>
         </div>
       </section>
-
-      <Dialog open={activeSolution !== null} onOpenChange={(open) => { if (!open) setActiveSolution(null); }}>
-        {activeSolution && (
-          <DialogContent className="max-h-[90vh] max-w-4xl overflow-y-auto rounded-3xl border-blue-500/25 p-0">
-            <div className="about-figure-preview p-7 sm:p-9">
-              <div className="flex items-start justify-between gap-5 pr-8">
-                <div>
-                  <p className="reis-eyebrow text-xs font-bold uppercase tracking-[0.2em]">Public capability snapshot</p>
-                  <DialogTitle className="mt-3 text-3xl font-bold tracking-[-0.03em] sm:text-4xl">{activeSolution.title}</DialogTitle>
-                  <DialogDescription className="mt-3 text-base font-medium opacity-65">{activeSolution.category} · {activeSolution.status}</DialogDescription>
-                </div>
-                <div className="reis-small-icon hidden h-14 w-14 shrink-0 place-items-center rounded-2xl sm:grid"><activeSolution.icon size={27} /></div>
-              </div>
-            </div>
-            <div className="grid gap-8 p-7 sm:p-9 lg:grid-cols-[1.05fr_.95fr]">
-              <div>
-                <p className="text-xs font-bold uppercase tracking-[0.18em] opacity-50">The challenge</p>
-                <p className="mt-3 leading-7 opacity-75">{activeSolution.challenge}</p>
-                <p className="mt-7 text-xs font-bold uppercase tracking-[0.18em] opacity-50">REIS response</p>
-                <p className="mt-3 leading-7 opacity-75">{activeSolution.overview}</p>
-                {activeSolution.disclaimer && <p className="mt-4 text-xs leading-5 opacity-55">{activeSolution.disclaimer}</p>}
-                <CapabilityInfographic stages={activeSolution.pathway} />
-                <div className="mt-8 rounded-2xl border border-blue-500/20 bg-blue-500/[.06] p-5">
-                  <div className="flex items-center gap-3"><Eye className="reis-index" size={20} /><p className="font-semibold">Intentionally high level</p></div>
-                  <p className="mt-2 text-sm leading-6 opacity-65">This preview excludes proprietary methods, detailed designs, security controls and implementation material.</p>
-                </div>
-              </div>
-              <div className="space-y-7">
-                <div>
-                  <p className="text-xs font-bold uppercase tracking-[0.18em] opacity-50">Capabilities demonstrated</p>
-                  <div className="mt-4 grid gap-3">{activeSolution.capabilities.map((item) => <div key={item} className="flex items-center gap-3"><Check size={16} className="reis-index" /><span className="text-sm font-medium">{item}</span></div>)}</div>
-                </div>
-                <div>
-                  <p className="text-xs font-bold uppercase tracking-[0.18em] opacity-50">Potential value</p>
-                  <div className="mt-4 grid gap-3">{activeSolution.outcomes.map((item) => <div key={item} className="flex items-center gap-3"><ArrowRight size={16} className="reis-index" /><span className="text-sm font-medium">{item}</span></div>)}</div>
-                </div>
-                <a href="mailto:hello@reis-global.com" className="reis-primary-button inline-flex items-center gap-2 rounded-lg px-5 py-3 text-sm font-semibold">Discuss this capability <ArrowRight size={16} /></a>
-              </div>
-            </div>
-          </DialogContent>
-        )}
-      </Dialog>
 
       <section id="lifecycle" className="reis-dark-section py-24">
         <div className="mx-auto max-w-[1440px] px-6 lg:px-10">
@@ -348,11 +284,11 @@ function SolutionsPage() {
       </section>
 
       <section id="contact" className="reis-cta-section px-6 py-24 lg:px-10">
-        <div className="mx-auto flex max-w-5xl flex-col items-center text-center"><p className="text-sm font-bold uppercase tracking-[0.22em] opacity-70">Engineering solutions built to last</p><h2 className="mt-5 text-5xl font-bold tracking-[-0.05em] sm:text-6xl">Discuss your transformation initiative.</h2><p className="mt-6 max-w-2xl text-lg leading-8 opacity-75">REIS delivers research-led engineering that creates secure, scalable and sustainable digital transformation.</p><a href="mailto:ola.reis.global@gmail.com" className="reis-primary-button mt-9 inline-flex items-center gap-2 rounded-lg px-7 py-4 font-semibold">Start a conversation <ArrowRight size={18} /></a></div>
+        <div className="mx-auto flex max-w-5xl flex-col items-center text-center"><p className="text-sm font-bold uppercase tracking-[0.22em] opacity-70">Engineering solutions built to last</p><h2 className="mt-5 text-5xl font-bold tracking-[-0.05em] sm:text-6xl">Discuss your transformation initiative.</h2><p className="mt-6 max-w-2xl text-lg leading-8 opacity-75">REIS delivers research-led engineering that creates secure, scalable and sustainable digital transformation.</p><a href="mailto:info@reis-global.com" className="reis-primary-button mt-9 inline-flex items-center gap-2 rounded-lg px-7 py-4 font-semibold">Start a conversation <ArrowRight size={18} /></a></div>
       </section>
 
       <footer className="reis-footer border-t">
-        <div className="mx-auto grid max-w-[1440px] gap-10 px-6 py-14 md:grid-cols-2 lg:grid-cols-4 lg:px-10"><div className="lg:col-span-2"><div className="flex items-center gap-3"><ReisMark /><span className="text-xl font-bold tracking-[0.05em]">REIS GLOBAL</span></div><p className="mt-5 max-w-md leading-7 opacity-60">Research, engineering, innovation and solutions for governments, enterprises and communities.</p></div><div><h3 className="font-semibold">Explore</h3><div className="mt-4 flex flex-col gap-3 text-sm opacity-60"><a href="/about">About</a><a href="/capabilities">Capabilities</a><a href="/solutions">Solutions</a><a href="/#research">Research</a></div></div><div><h3 className="font-semibold">Contact</h3><div className="mt-4 flex flex-col gap-3 text-sm opacity-60"><a href="mailto:ola.reis.global@gmail.com">ola.reis.global@gmail.com</a><span>United Kingdom</span><span>Serving clients globally</span></div></div></div>
+        <div className="mx-auto grid max-w-[1440px] gap-10 px-6 py-14 md:grid-cols-2 lg:grid-cols-4 lg:px-10"><div className="lg:col-span-2"><div className="flex items-center gap-3"><ReisMark /><span className="text-xl font-bold tracking-[0.05em]">REIS GLOBAL</span></div><p className="mt-5 max-w-md leading-7 opacity-60">Research, engineering, innovation and solutions for governments, enterprises and communities.</p></div><div><h3 className="font-semibold">Explore</h3><div className="mt-4 flex flex-col gap-3 text-sm opacity-60"><a href="/about">About</a><a href="/capabilities">Capabilities</a><a href="/solutions">Solutions</a><a href="/#research">Research</a></div></div><div><h3 className="font-semibold">Contact</h3><div className="mt-4 flex flex-col gap-3 text-sm opacity-60"><a href="mailto:info@reis-global.com">info@reis-global.com</a><span>United Kingdom</span><span>Serving clients globally</span></div></div></div>
         <div className="mx-auto flex max-w-[1440px] flex-col gap-2 border-t px-6 py-6 text-xs opacity-45 sm:flex-row sm:justify-between lg:px-10"><span>© 2026 REIS Global Ltd. All rights reserved.</span><span>Research · Engineering · Innovation · Solutions</span></div>
       </footer>
     </main>
@@ -365,27 +301,4 @@ function ReisMark() {
 
 function SectionHeading({ eyebrow, title, text }: { eyebrow: string; title: string; text: string }) {
   return <div className="max-w-3xl"><p className="reis-eyebrow text-sm font-bold uppercase tracking-[0.22em]">{eyebrow}</p><h2 className="mt-5 text-4xl font-bold tracking-[-0.04em] sm:text-5xl">{title}</h2><p className="mt-6 text-lg leading-8 opacity-65">{text}</p></div>;
-}
-
-function CapabilityInfographic({ stages }: { stages: readonly [string, string, string, string] }) {
-  const icons = [BrainCircuit, Network, Sparkles, Check] as const;
-
-  return (
-    <div className="mt-8" aria-label="Simplified REIS capability pathway">
-      <p className="text-xs font-bold uppercase tracking-[0.18em] opacity-50">Capability pathway</p>
-      <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4">
-        {stages.map((label, index) => {
-          const Icon = icons[index];
-          return (
-            <div key={label} className="relative rounded-xl border border-blue-500/20 bg-blue-500/[.05] p-3 text-center">
-              <Icon className="reis-index mx-auto" size={19} />
-              <p className="mt-2 text-xs font-semibold">{label}</p>
-              {index < stages.length - 1 && <ArrowRight className="reis-index absolute -right-[18px] top-1/2 z-10 hidden -translate-y-1/2 sm:block" size={14} aria-hidden="true" />}
-            </div>
-          );
-        })}
-      </div>
-      <p className="mt-3 text-xs leading-5 opacity-50">Illustrative only — not a system architecture or implementation design.</p>
-    </div>
-  );
 }
