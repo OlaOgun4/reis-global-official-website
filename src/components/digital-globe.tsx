@@ -1,12 +1,12 @@
-import { Building2, Landmark, Leaf, Scale, ShieldCheck, Users } from "lucide-react";
+import { ArrowRight, Building2, Landmark, Leaf, Scale, ShieldCheck, Users } from "lucide-react";
 
 const sectors = [
-  { icon: Landmark, label: "Government" },
-  { icon: ShieldCheck, label: "Defence & Security" },
-  { icon: Leaf, label: "Agriculture" },
-  { icon: Scale, label: "Justice" },
-  { icon: Building2, label: "Enterprise" },
-  { icon: Users, label: "Communities" },
+  { icon: Landmark, label: "Government", href: "/industries#government-public-sector" },
+  { icon: ShieldCheck, label: "Defence & Security", href: "/industries#defence-security" },
+  { icon: Leaf, label: "Agriculture", href: "/industries#agriculture-food-systems" },
+  { icon: Scale, label: "Justice", href: "/industries#justice-law" },
+  { icon: Building2, label: "Enterprise", href: "/industries#enterprise-commercial" },
+  { icon: Users, label: "Communities", href: "/industries#government-public-sector" },
 ];
 
 export function DigitalGlobe() {
@@ -39,18 +39,21 @@ export function DigitalGlobe() {
       </div>
 
       <div className="absolute right-0 top-8 hidden w-56 space-y-3 xl:block">
-        {sectors.map(({ icon: Icon, label }, index) => (
-          <div
+        {sectors.map(({ icon: Icon, label, href }, index) => (
+          <a
             key={label}
-            className="reis-sector-node relative flex items-center gap-3 rounded-xl border px-3 py-2.5"
+            href={href}
+            aria-label={`Explore ${label} industry capabilities`}
+            className="reis-sector-node group relative flex cursor-pointer items-center gap-3 rounded-xl border px-3 py-2.5 no-underline transition hover:-translate-y-0.5 hover:border-[#159bff] hover:shadow-[0_12px_30px_rgba(21,155,255,0.18)]"
             style={{ marginLeft: `${(index % 3) * 10}px` }}
           >
-            <span className="reis-sector-line absolute right-full top-1/2 h-px w-16" />
-            <div className="reis-small-icon grid h-9 w-9 place-items-center rounded-full">
+            <span aria-hidden="true" className="reis-sector-line absolute right-full top-1/2 h-px w-16" />
+            <span aria-hidden="true" className="reis-small-icon grid h-9 w-9 shrink-0 place-items-center rounded-full">
               <Icon size={17} />
-            </div>
+            </span>
             <span className="text-xs font-semibold uppercase tracking-[0.08em]">{label}</span>
-          </div>
+            <ArrowRight aria-hidden="true" size={15} className="ml-auto shrink-0 opacity-35 transition group-hover:translate-x-1 group-hover:opacity-100" />
+          </a>
         ))}
       </div>
     </div>
