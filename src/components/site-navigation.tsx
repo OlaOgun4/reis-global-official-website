@@ -11,7 +11,7 @@ const navigation = [
   ["/publications", "Publications"],
 ] as const;
 
-type NavigationPath = (typeof navigation)[number][0] | "/";
+type NavigationPath = (typeof navigation)[number][0] | "/" | "/contact";
 
 export function SiteHeader({ active }: { active: NavigationPath }) {
   const [mobileOpen, setMobileOpen] = useState(false);
