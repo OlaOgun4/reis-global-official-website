@@ -1,3 +1,4 @@
+import { ReisMark } from "../components/reis-mark";
 import { SiteFooter as GlobalFooter, SiteHeader as GlobalHeader } from "../components/site-navigation";
 import { createFileRoute } from "@tanstack/react-router";
 import {
@@ -340,15 +341,6 @@ function CapabilityConstellation() {
   );
 }
 
-function ReisMark() {
-  return (
-    <div className="relative h-11 w-11" aria-hidden="true">
-      <span className="absolute left-1 top-1 h-4 w-8 rotate-[-35deg] rounded-md bg-[#28b8ff]" />
-      <span className="absolute left-3 top-4 h-4 w-8 rotate-[-35deg] rounded-md bg-[#087cff]" />
-      <span className="absolute left-1 top-7 h-4 w-8 rotate-[-35deg] rounded-md bg-[#1366d8]" />
-    </div>
-  );
-}
 
 function SectionHeading({
   eyebrow,
