@@ -17,13 +17,12 @@ export function DigitalGlobe() {
       <div className="reis-globe-shell relative grid h-[340px] w-[340px] place-items-center rounded-full sm:h-[450px] sm:w-[450px]">
         <div className="reis-globe-halo absolute inset-0 rounded-full" />
         <div className="reis-globe relative h-[86%] w-[86%] overflow-hidden rounded-full">
+          <div className="reis-earth-surface absolute inset-0" />
           <div className="reis-longitude reis-longitude-a absolute inset-[7%] rounded-full" />
           <div className="reis-longitude reis-longitude-b absolute inset-[7%] rounded-full" />
           <div className="reis-latitude absolute left-[7%] right-[7%] top-[28%] h-[18%] rounded-[50%]" />
           <div className="reis-latitude absolute bottom-[28%] left-[7%] right-[7%] h-[18%] rounded-[50%]" />
-          <div className="reis-continent reis-continent-one absolute" />
-          <div className="reis-continent reis-continent-two absolute" />
-          <div className="reis-continent reis-continent-three absolute" />
+          <div className="reis-globe-shade absolute inset-0 rounded-full" />
           {Array.from({ length: 18 }).map((_, index) => (
             <span
               key={index}
