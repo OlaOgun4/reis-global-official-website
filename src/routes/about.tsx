@@ -28,7 +28,7 @@ export const Route = createFileRoute("/about")({
       {
         name: "description",
         content:
-          "Learn how REIS Global combines research, engineering, innovation, solutions and governance to deliver secure digital transformation.",
+          "Learn how REIS Global combines research, engineering, innovation and solutions to deliver secure digital transformation.",
       },
       { property: "og:title", content: "About REIS Global" },
       {
@@ -58,7 +58,6 @@ const values = [
   [Network, "Engineering", "Architecture before implementation."],
   [Lightbulb, "Innovation", "Solve meaningful problems."],
   [Sparkles, "Solutions", "Platforms built for measurable outcomes."],
-  [Landmark, "Governance", "Policy, compliance and accountability in every layer."],
   [ShieldCheck, "Integrity", "Security, governance and trust."],
   [Target, "Excellence", "Continuous improvement in every release."],
   [Users, "Collaboration", "Partnership before transaction."],
@@ -349,7 +348,7 @@ function SiteHeader({ mobileOpen, setMobileOpen }: { mobileOpen: boolean; setMob
           <div>
             <div className="text-xl font-bold tracking-[0.04em]">REIS GLOBAL</div>
             <div className="text-[9px] uppercase tracking-[0.18em] opacity-65">
-              Research · Engineering · Innovation · Solutions · Governance
+              Research · Engineering · Innovation · Solutions
             </div>
           </div>
         </a>
