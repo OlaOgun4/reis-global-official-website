@@ -37,10 +37,10 @@ export function DigitalGlobe() {
           ))}
         </div>
         <img
-          src="/reis-mark.svg"
+          src="/reis-mark-glyph.svg"
           alt="REIS Global logo"
           draggable={false}
-          className="absolute h-[38%] w-[38%] select-none drop-shadow-[0_10px_30px_rgba(4,20,48,0.35)]"
+          className="absolute h-[38%] w-[38%] select-none drop-shadow-[0_10px_30px_rgba(4,20,48,0.45)]"
         />
       </div>
 
