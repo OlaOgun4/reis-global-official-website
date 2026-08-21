@@ -14,15 +14,17 @@
     </linearGradient>
   </defs>
   <rect width="160" height="160" rx="20" fill="#0c224b"/>
-  <g>
-    <!-- white R: top bar, bowl, leg -->
-    <path d="M58 38h34c19.3 0 34 14.8 34 33 0 14.4-8.9 26.6-21.6 31.3L131 130h-25.4L80.6 97H61l11.5-19H92c7.6 0 13.6-6.1 13.6-13.6S99.6 51 92 51H47z"
-          fill="#f2f7ff"/>
-    <!-- colored slabs, separated from the R by navy outlines -->
-    <g stroke="#0c224b" stroke-width="5" stroke-linejoin="round">
-      <path d="M30 55h60l-9 15H39z" fill="url(#rb)"/>
-      <path d="M38 82h56l-9.5 16H47.5z" fill="url(#rt)"/>
-      <path d="M46 109h56l9.5 16H55.5z" fill="url(#rg)"/>
-    </g>
+  <g fill="#f2f7ff">
+    <!-- bowl -->
+    <path d="M92 38a33 33 0 0 1 0 66H74V85h18a14 14 0 0 0 0-28H74V38z"/>
+    <!-- top bar with angled left edge -->
+    <path d="M60 38h32v19H45z"/>
+    <!-- leg -->
+    <path d="M86 96l45 34h-27L69 96z"/>
+  </g>
+  <g stroke="#0c224b" stroke-width="5" stroke-linejoin="round">
+    <path d="M28 55h58l-10 17H38z" fill="url(#rb)"/>
+    <path d="M36 82h56l-10 17H46z" fill="url(#rt)"/>
+    <path d="M44 109h54l10 17H54z" fill="url(#rg)"/>
   </g>
 </svg>
