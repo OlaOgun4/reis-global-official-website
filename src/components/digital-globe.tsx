@@ -23,25 +23,21 @@ export function DigitalGlobe() {
           <div className="reis-latitude absolute left-[7%] right-[7%] top-[28%] h-[18%] rounded-[50%]" />
           <div className="reis-latitude absolute bottom-[28%] left-[7%] right-[7%] h-[18%] rounded-[50%]" />
           <div className="reis-globe-shade absolute inset-0 rounded-full" />
-          {Array.from({ length: 18 }).map((_, index) => (
+          <div className="reis-globe-gloss absolute inset-0 rounded-full" />
+          {Array.from({ length: 12 }).map((_, index) => (
             <span
               key={index}
               className="reis-node absolute h-1.5 w-1.5 rounded-full"
               style={{
-                left: `${12 + ((index * 19) % 76)}%`,
-                top: `${14 + ((index * 29) % 70)}%`,
-                animationDelay: `${index * 120}ms`,
+                left: `${16 + ((index * 23) % 68)}%`,
+                top: `${18 + ((index * 31) % 62)}%`,
+                animationDelay: `${index * 180}ms`,
               }}
             />
           ))}
         </div>
-        <img
-          src="/reis-mark-glyph.svg"
-          alt="REIS Global logo"
-          draggable={false}
-          className="absolute h-[38%] w-[38%] select-none drop-shadow-[0_10px_30px_rgba(4,20,48,0.45)]"
-        />
       </div>
+
 
       <div className="absolute right-0 top-8 hidden w-56 space-y-3 xl:block">
         {sectors.map(({ icon: Icon, label, href }, index) => (
