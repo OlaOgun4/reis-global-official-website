@@ -1,21 +1,28 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" role="img" aria-label="REIS Global logo">
   <defs>
     <linearGradient id="rb" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#3fb6ff"/>
+      <stop offset="0" stop-color="#4fb8ff"/>
       <stop offset="1" stop-color="#1f63d6"/>
     </linearGradient>
     <linearGradient id="rt" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#2fdbe0"/>
+      <stop offset="0" stop-color="#3ce0e6"/>
       <stop offset="1" stop-color="#12a7c9"/>
     </linearGradient>
     <linearGradient id="rg" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#8ce03f"/>
+      <stop offset="0" stop-color="#9ae83f"/>
       <stop offset="1" stop-color="#2bb54a"/>
     </linearGradient>
   </defs>
-  <rect width="160" height="160" rx="18" fill="#0c224b"/>
-  <path d="M52 36h38c17.7 0 32 14.3 32 32 0 13.6-8.5 25.2-20.4 29.8L124 128h-25.6L78 96.6H62.5l10-16.5h17.4c6.6 0 12-5.4 12-12s-5.4-12-12-12H41z" fill="#f5f9ff"/>
-  <path d="M33 52h55.5c5.7 0 10.6 3.3 13 8.1H43.6z" fill="url(#rb)"/>
-  <path d="M39 76.5h44.5l-10 16.5H49z" fill="url(#rt)"/>
-  <path d="M45 101h44l10 16.5H55z" fill="url(#rg)"/>
+  <rect width="160" height="160" rx="20" fill="#0c224b"/>
+  <g>
+    <!-- white R: top bar, bowl, leg -->
+    <path d="M58 38h34c19.3 0 34 14.8 34 33 0 14.4-8.9 26.6-21.6 31.3L131 130h-25.4L80.6 97H61l11.5-19H92c7.6 0 13.6-6.1 13.6-13.6S99.6 51 92 51H47z"
+          fill="#f2f7ff"/>
+    <!-- colored slabs, separated from the R by navy outlines -->
+    <g stroke="#0c224b" stroke-width="5" stroke-linejoin="round">
+      <path d="M30 55h60l-9 15H39z" fill="url(#rb)"/>
+      <path d="M38 82h56l-9.5 16H47.5z" fill="url(#rt)"/>
+      <path d="M46 109h56l9.5 16H55.5z" fill="url(#rg)"/>
+    </g>
+  </g>
 </svg>
