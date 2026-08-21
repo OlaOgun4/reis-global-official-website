@@ -18,24 +18,10 @@ export function DigitalGlobe() {
         <div className="reis-globe-halo absolute inset-0 rounded-full" />
         <div className="reis-globe relative h-[86%] w-[86%] overflow-hidden rounded-full">
           <div className="reis-earth-surface absolute inset-0" />
-          <div className="reis-longitude reis-longitude-a absolute inset-[7%] rounded-full" />
-          <div className="reis-longitude reis-longitude-b absolute inset-[7%] rounded-full" />
-          <div className="reis-latitude absolute left-[7%] right-[7%] top-[28%] h-[18%] rounded-[50%]" />
-          <div className="reis-latitude absolute bottom-[28%] left-[7%] right-[7%] h-[18%] rounded-[50%]" />
           <div className="reis-globe-shade absolute inset-0 rounded-full" />
           <div className="reis-globe-gloss absolute inset-0 rounded-full" />
-          {Array.from({ length: 12 }).map((_, index) => (
-            <span
-              key={index}
-              className="reis-node absolute h-1.5 w-1.5 rounded-full"
-              style={{
-                left: `${16 + ((index * 23) % 68)}%`,
-                top: `${18 + ((index * 31) % 62)}%`,
-                animationDelay: `${index * 180}ms`,
-              }}
-            />
-          ))}
         </div>
+
       </div>
 
 
