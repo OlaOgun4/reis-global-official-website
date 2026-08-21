@@ -25,7 +25,7 @@ export function SiteHeader({ active }: { active: NavigationPath }) {
           <div className="min-w-0">
             <div className="text-xl font-bold tracking-[0.04em]">REIS GLOBAL</div>
             <div className="hidden text-[9px] uppercase tracking-[0.18em] opacity-65 sm:block">
-              Research · Engineering · Innovation · Solutions
+              Research · Engineering · Innovation · Solutions · Governance
             </div>
           </div>
         </Link>
@@ -130,7 +130,7 @@ export function SiteFooter() {
       </div>
       <div className="mx-auto flex max-w-[1440px] flex-col gap-2 border-t px-6 py-6 text-xs opacity-45 sm:flex-row sm:justify-between lg:px-10">
         <span>© 2026 REIS Global Ltd. All rights reserved.</span>
-        <span>Research · Engineering · Innovation · Solutions</span>
+        <span>Research · Engineering · Innovation · Solutions · Governance</span>
       </div>
     </footer>
   );
