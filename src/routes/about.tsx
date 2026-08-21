@@ -57,6 +57,8 @@ const values = [
   [BookOpen, "Research", "Evidence before assumption."],
   [Network, "Engineering", "Architecture before implementation."],
   [Lightbulb, "Innovation", "Solve meaningful problems."],
+  [Sparkles, "Solutions", "Platforms built for measurable outcomes."],
+  [Landmark, "Governance", "Policy, compliance and accountability in every layer."],
   [ShieldCheck, "Integrity", "Security, governance and trust."],
   [Target, "Excellence", "Continuous improvement in every release."],
   [Users, "Collaboration", "Partnership before transaction."],
