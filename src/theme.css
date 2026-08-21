@@ -43,22 +43,8 @@ textarea:focus-visible {
 
 ::selection { background: rgba(13,140,255,.28); }
 
-/* Official REIS identity: monogram in light mode, globe mark in dark mode. */
-.reis-header a[aria-label="REIS Global home"] > .relative.h-11.w-11,
-.reis-footer .relative.h-11.w-11 {
-  flex: 0 0 2.75rem;
-  background: url('/reis-mark.svg') center / contain no-repeat;
-}
+/* Official REIS identity: single monogram mark in both light and dark mode. */
 
-.reis-header a[aria-label="REIS Global home"] > .relative.h-11.w-11 > span,
-.reis-footer .relative.h-11.w-11 > span {
-  display: none !important;
-}
-
-.dark .reis-header a[aria-label="REIS Global home"] > .relative.h-11.w-11,
-.dark .reis-footer .relative.h-11.w-11 {
-  background-image: url('/reis-globe-light.svg');
-}
 
 .reis-header a[aria-label="REIS Global home"] > div:last-child > div:first-child,
 .reis-footer .flex.items-center.gap-3 > span {

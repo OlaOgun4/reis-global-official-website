@@ -1,1 +1,21 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" role="img" aria-labelledby="title desc"><title id="title">REIS monogram</title><desc id="desc">Layered R monogram in navy, blue, teal and green.</desc><defs><linearGradient id="navy" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#123f87"/><stop offset="1" stop-color="#061b4d"/></linearGradient><linearGradient id="blue" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#11a7ef"/><stop offset="1" stop-color="#1555bb"/></linearGradient><linearGradient id="teal" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#16c7c6"/><stop offset="1" stop-color="#078bb2"/></linearGradient><linearGradient id="green" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#7bcf20"/><stop offset="1" stop-color="#008f3d"/></linearGradient></defs><path d="M28 18h62c25 0 45 20 45 45 0 17-9 31-23 39l26 40h-29L79 96H58l13-22h18c10 0 18-8 18-18s-8-18-18-18H45z" fill="url(#navy)"/><path d="M20 48h58c10 0 18 8 18 18H42z" fill="url(#blue)"/><path d="M26 79h56l-13 22H45z" fill="url(#teal)"/><path d="M35 110h48l18 28H57z" fill="url(#green)"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" role="img" aria-label="REIS Global logo">
+  <defs>
+    <linearGradient id="rb" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#3fb6ff"/>
+      <stop offset="1" stop-color="#1f63d6"/>
+    </linearGradient>
+    <linearGradient id="rt" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#2fdbe0"/>
+      <stop offset="1" stop-color="#12a7c9"/>
+    </linearGradient>
+    <linearGradient id="rg" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#8ce03f"/>
+      <stop offset="1" stop-color="#2bb54a"/>
+    </linearGradient>
+  </defs>
+  <rect width="160" height="160" rx="18" fill="#0c224b"/>
+  <path d="M52 36h38c17.7 0 32 14.3 32 32 0 13.6-8.5 25.2-20.4 29.8L124 128h-25.6L78 96.6H62.5l10-16.5h17.4c6.6 0 12-5.4 12-12s-5.4-12-12-12H41z" fill="#f5f9ff"/>
+  <path d="M33 52h55.5c5.7 0 10.6 3.3 13 8.1H43.6z" fill="url(#rb)"/>
+  <path d="M39 76.5h44.5l-10 16.5H49z" fill="url(#rt)"/>
+  <path d="M45 101h44l10 16.5H55z" fill="url(#rg)"/>
+</svg>
