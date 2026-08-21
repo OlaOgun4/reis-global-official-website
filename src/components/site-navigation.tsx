@@ -1,3 +1,4 @@
+import { ReisMark } from "./reis-mark";
 import { Link } from "@tanstack/react-router";
 import { ArrowRight, Menu, X } from "lucide-react";
 import { useState } from "react";
@@ -135,12 +136,3 @@ export function SiteFooter() {
   );
 }
 
-function ReisMark() {
-  return (
-    <div className="relative h-11 w-11 shrink-0" aria-hidden="true">
-      <span className="absolute left-1 top-1 h-4 w-8 rotate-[-35deg] rounded-md bg-[#28b8ff]" />
-      <span className="absolute left-3 top-4 h-4 w-8 rotate-[-35deg] rounded-md bg-[#087cff]" />
-      <span className="absolute left-1 top-7 h-4 w-8 rotate-[-35deg] rounded-md bg-[#1366d8]" />
-    </div>
-  );
-}

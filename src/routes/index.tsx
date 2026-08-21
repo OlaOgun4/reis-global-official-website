@@ -1,3 +1,4 @@
+import { ReisMark } from "../components/reis-mark";
 import { SiteFooter as GlobalFooter, SiteHeader as GlobalHeader } from "../components/site-navigation";
 import { Link, createFileRoute } from "@tanstack/react-router";
 import {
@@ -99,5 +100,4 @@ function Index() {
   );
 }
 
-function ReisMark() { return <div className="relative h-11 w-11" aria-hidden="true"><span className="absolute left-1 top-1 h-4 w-8 rotate-[-35deg] rounded-md bg-[#28b8ff]" /><span className="absolute left-3 top-4 h-4 w-8 rotate-[-35deg] rounded-md bg-[#087cff]" /><span className="absolute left-1 top-7 h-4 w-8 rotate-[-35deg] rounded-md bg-[#1366d8]" /></div>; }
 function SectionHeader({ eyebrow, title, text, dark = false }: { eyebrow: string; title: string; text: string; dark?: boolean }) { return <div className="max-w-3xl"><p className="reis-eyebrow text-sm font-bold uppercase tracking-[0.22em]">{eyebrow}</p><h2 className={`mt-5 text-4xl font-bold tracking-[-0.04em] sm:text-5xl ${dark ? "text-white" : ""}`}>{title}</h2><p className={`mt-6 text-lg leading-8 ${dark ? "text-white/60" : "opacity-65"}`}>{text}</p></div>; }
