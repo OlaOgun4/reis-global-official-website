@@ -8,6 +8,7 @@ import {
   Check,
   Cloud,
   Database,
+  Landmark,
   Leaf,
   Menu,
   Network,
