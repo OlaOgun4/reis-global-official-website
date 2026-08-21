@@ -110,6 +110,18 @@ const showcases = {
     industries: ["Enterprise", "Financial Services", "Professional Services"],
     disclaimer: "REIS Financials is an independent REIS initiative. It is not an HMRC product and its inclusion does not imply HMRC endorsement or production approval.",
   },
+  "governance-transformation": {
+    title: "Governance Transformation",
+    category: "Risk & Compliance",
+    status: "Advisory proposition",
+    image: "/images/projects/governance-transformation.webp",
+    challenge: "Embedding policy, compliance, risk and accountability into digital transformation so institutions stay controlled, auditable and trusted.",
+    response: "A governance-led transformation proposition that aligns people, process, technology and assurance around institutional outcomes.",
+    capabilities: ["Policy & control design", "Risk & compliance architecture", "Auditability & traceability", "Governance operating model"],
+    outcomes: ["Clearer accountability", "Reduced compliance friction", "Trusted transformation"],
+    pathway: ["Assess", "Design", "Assure", "Evolve"],
+    industries: ["Government", "Enterprise", "Financial Services"],
+  },
 } as const;
 
 function SolutionShowcasePage() {

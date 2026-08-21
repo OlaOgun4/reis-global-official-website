@@ -8,6 +8,7 @@ import {
   Check,
   Cloud,
   Database,
+  Landmark,
   Leaf,
   Menu,
   Network,
@@ -27,7 +28,7 @@ export const Route = createFileRoute("/solutions")({
       {
         name: "description",
         content:
-          "Explore REIS Global solutions for government, agriculture, justice, security and enterprise transformation.",
+          "Explore REIS Global solutions for government, agriculture, justice, security, governance and enterprise transformation.",
       },
       { property: "og:title", content: "REIS Global Solutions" },
       {
@@ -140,6 +141,20 @@ const solutions = [
     status: "Development and sandbox validation",
     disclaimer: "REIS Financials is an independent REIS initiative. It is not an HMRC product and its inclusion does not imply HMRC endorsement or production approval.",
   },
+  {
+    icon: Landmark,
+    slug: "governance-transformation",
+    title: "Governance Transformation",
+    category: "Risk & Compliance",
+    challenge: "Embedding policy, compliance, risk and accountability into digital transformation so institutions stay controlled, auditable and trusted.",
+    overview: "A governance-led transformation proposition that aligns people, process, technology and assurance around institutional outcomes.",
+    capabilities: ["Policy & control design", "Risk & compliance architecture", "Auditability & traceability", "Governance operating model"],
+    outcomes: ["Clearer accountability", "Reduced compliance friction", "Trusted transformation"],
+    pathway: ["Assess", "Design", "Assure", "Evolve"],
+    industries: ["Government", "Enterprise", "Financial Services"],
+    status: "Advisory proposition",
+    disclaimer: null,
+  },
 ] as const;
 
 const lifecycle = [
@@ -160,6 +175,7 @@ const matrix = [
   ["Digital Agriculture Architecture", true, false, false, true, true],
   ["National Security & Response", true, true, true, false, true],
   ["REIS Financials", false, false, false, false, true],
+  ["Governance Transformation", true, false, false, false, true],
 ] as const;
 
 const outcomes = [
